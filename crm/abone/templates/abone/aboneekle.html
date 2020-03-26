@@ -1,0 +1,52 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>farmirr</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/abone.css' %}">
+    </head>
+    <body>
+        <div class="maindiv">
+            <header></header>
+
+            <nav>
+                <div class="logo">farmirr</div>
+                    <ul>
+                        <a href=""><li>Abone Yönetimi</li></a>
+                        <a href=""><li>Cihaz Yönetimi</li></a>
+                        <a href=""><li>Bayilik Yönetimi</li></a>
+                        <a href=""><li>Teknik Servis</li></a>
+                        <a href=""><li>Stok Yönetimi</li></a>
+                        <a href=""><li>SMS Yönetimi</li></a>
+                        <a href=""><li>İstatistikler</li></a>
+                        <a href=""><li>Muhasebe İşlemleri</li></a>
+                        <a href=""><li>Bildirim Yönetimi</li></a>
+                    </ul>
+            </nav>
+
+            <div class="abonearadiv">
+                <h1>Abone Ekle</h1>
+                <hr>
+            </div>
+            <div class="filtrearaformdiv">
+                <form method="POST" class="post-form">{% csrf_token %}
+                    <table>
+                        {{ form.as_table }}
+                        {{ form2.as_table }}
+                    </table>
+
+
+                    <button type="submit" class="save btn btn-default">Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+{% block aboneekle %}
+
+
+{% endblock %}

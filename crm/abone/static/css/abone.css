@@ -1,0 +1,62 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: farmirr
+*/
+/* SIFIRLAMA KODLARI */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block;}
+body {line-height: 1;}
+ol, ul {list-style: none;}
+blockquote, q {quotes: none;}
+blockquote:before, blockquote:after, q:before, q:after {content: '';content: none;}
+table {border-collapse: collapse;border-spacing: 0;}
+
+/* ------------------------------- */
+.maindiv{height: 100%; width: 100%; margin: 0px auto;  }
+
+header{background: #c0d725; width:100%; height: 30px;}
+
+nav{height:100%; width:220px; float:left; background-color: #363947;}
+
+.logo{height: 80px; color:#c0d725; font-family:Arial; font-size:25px; padding: 25px 55px;}
+
+nav ul{}
+nav ul a{
+    font-family:Arial;
+    font-size: 15px;
+    color:#ececec;
+    text-decoration: none;}
+
+nav ul a li{ padding: 11px 0 11px 35px; }
+nav ul a li:hover {background-color: #ececec; color:#363947;}
+nav ul a:active{background-color: #ececec;}
+nav ul a:hover{text-decoration: none;}
+
+
+.aboneeklebutondiv{ height: 150px; width: 80%; float:left; }
+.butonaboneekle{margin-left:35px; margin-top:30px; width: 280px; height: 100px; background-color:#c0d725; border:none; }
+.butonaboneekle .aboneeklebutonyazi{color:white; margin-right:80px; margin-bottom:30px; font-size:30px; font-family:Arial; font-weight: bold;}
+
+.abonearadiv{float:left; width:80%; padding:20px 50px; font-family:Arial; font-weight:bold; color:#363947; font-size:30px;}
+.abonearadiv hr{border-color:#363947; opacity: 60%;}
+
+.filtrearaformdiv{float:left; font-family: Arial; padding:0 50px;}
+.filtrearaformdiv span{font-family: Arial;}
+.filtrearaformdiv p{margin-top:10px;}
+.filtrearaformdiv input{width: 180px; margin-right: 20px;}
+
+.kullanicitablo{float:left; padding:30px 50px 0 50px; width: 80%;}
+thead{background-color:#c0d725;font-family:Arial; font-weight:bold;}

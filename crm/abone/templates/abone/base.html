@@ -1,0 +1,80 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>farmirr</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/abone.css' %}">
+    </head>
+    <body>
+        <div class="maindiv">
+            <header></header>
+
+            <nav>
+                <div class="logo">farmirr</div>
+                    <ul>
+                        <a href=""><li>Abone Yönetimi</li></a>
+                        <a href=""><li>Cihaz Yönetimi</li></a>
+                        <a href=""><li>Bayilik Yönetimi</li></a>
+                        <a href=""><li>Teknik Servis</li></a>
+                        <a href=""><li>Stok Yönetimi</li></a>
+                        <a href=""><li>SMS Yönetimi</li></a>
+                        <a href=""><li>İstatistikler</li></a>
+                        <a href=""><li>Muhasebe İşlemleri</li></a>
+                        <a href=""><li>Bildirim Yönetimi</li></a>
+                    </ul>
+            </nav>
+
+            <div class="aboneeklebutondiv">
+                 <button class="butonaboneekle" onclick="location.href='{% url 'aboneekle' %}'">
+                     <div class="aboneeklebutonyazi">Abone Ekle</div>
+                 </button>
+            </div>
+
+            <div class="abonearadiv">
+                <h1>Abone Ara</h1>
+                <hr>
+            </div>
+
+            <div class="filtrearaformdiv">
+                <!-- {% block aboneekle %}{% endblock %} -->
+                <form method="POST" class="post-form">{% csrf_token %}
+                    <span>Tc Kimlik No:</span>
+                    <input type="text"  name="public_ID"  value="{{request.POST.public_ID}}">
+                    <span>Soyad:</span>
+                    <input type="text"  name="last_name" value="{{request.POST.last_name}}">
+                    <span>Telefon No:</span>
+                    <input type="text"  name="phone_number"  value="{{request.POST.phone_number}}">
+                    <button type="submit" class="save btn btn-warning">Ara</button>
+                </form>
+            </div>
+            <div class="kullanicitablo">
+                <table class="table">
+                    <thead>
+                        <tr>
+                          <th scope="col">id</th>
+                          <th scope="col">Tc Kimlik</th>
+                          <th scope="col">Telefon</th>
+                          <th scope="col">Email</th>
+                            <th scope="col">Ad</th>
+                          <th scope="col">Soyad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for article in form %}
+                            <tr>
+                                <th scope="row">{{article.subscriber_ID}}</th>
+                                <td>{{article.public_ID}}</td>
+                                <td>{{article.phone_number}}</td>
+                                <td>{{article.email_address}}</td>
+                                <th>{{article.first_name}}</th>
+                                <td>{{article.last_name}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
