@@ -16,7 +16,7 @@ TURKEY_CITIES = [
         ('2', 'ADIYAMAN'),
         ('3', 'AFYONKARAHİSAR'),
         ('4', 'AĞRI'),
-        ('5', 'AMASYA'),
+        ('amasya', 'AMASYA'),
         ('6', 'ANKARA'),
         ('7', 'ANTALYA'),
         ('8', 'ARTVİN'),
@@ -95,15 +95,12 @@ TURKEY_CITIES = [
         ('81', 'DÜZCE'),
         ]
 class SubscriberAddressCreate(models.Model): #abone adres oluştur
-
-
     address_owner_ID = SubscriberCreate.subscriber_ID #referans subscriber id
-    country = models.CharField("Ülke:",max_length=30, default='Türkiye')
-    #city = models.CharField("Şehir:",max_length=30, null=False, default='Amasya')
-    city = models.CharField("Şehir:", max_length=30, null=False, default=TURKEY_CITIES[4], choices=TURKEY_CITIES)
-    district = models.CharField("Mahalle / Kasaba:",max_length=30, null=False, default='Merkez')
-    village = models.CharField("Tc Kimlik No:",max_length=30, null=False)
-    address = models.CharField("Tc Kimlik No:",max_length=128)
+    country = models.CharField(verbose_name="Ülke:",max_length=30, default='turkey')
+    city = models.CharField(verbose_name="Şehir:",max_length=30,default=TURKEY_CITIES[4],choices=TURKEY_CITIES)
+    district = models.CharField(verbose_name="Mahalle / Semt:",max_length=30)
+    village = models.CharField(verbose_name="Köy / Kasaba:",max_length=30)
+    address = models.TextField(verbose_name="Tam Adres:",max_length=128)
     date_of_registration = models.DateTimeField(auto_now_add=True)
     date_of_update = models.DateTimeField(auto_now=True)
 

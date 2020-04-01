@@ -12,7 +12,35 @@ from django.shortcuts import render
 # Create your views here.
 
 def index(request):
-    pass
+    if request.method == 'POST':
+        soyad = request.POST.get('last_name')
+        print(soyad)
+        try:
+            tckimlik = request.POST['public_ID']
+        except KeyError:
+            tckimlik = None
+
+        telefonno = request.POST.get('phone_number')
+
+        if (soyad == "" and tckimlik == "" and telefonno == ""):
+            form = SubscriberCreate.objects.all()
+
+        kullaniciid = SubscriberCreate.objects.filter(
+            Q(last_name=soyad) | Q(public_ID=tckimlik) | Q(phone_number=telefonno)
+        )
+        form = kullaniciid
+        context = {
+            "articl": kullaniciid
+        }
+    #   pass
+    # form = AboneAra()
+    # if form.is_valid():
+    # a = SubscriberCreate.objects.filter(last_name=F('last_name'))
+    # return HttpResponseRedirect('/abone/aboneara')
+    else:
+        form = SubscriberCreate.objects.all()
+
+    return render(request, "abone/base.html", {'form': form})
 
 def aboneEkle(request):
     if request.method == 'POST':
@@ -23,17 +51,17 @@ def aboneEkle(request):
             kullanicibilgi = form.save(commit=False)
             kullanicibilgi.author = request.user
             kullanicibilgi.save()
+            return HttpResponseRedirect('/abone/')
 
 
 
-# ADRES KISMI EKLENMİYOR BAK
         if form2.is_valid():
-            kullaniciadres = form.save(commit=False)
+            kullaniciadres = form2.save(commit=False)
             kullaniciadres.author = request.user
             kullaniciadres.save()
+            return HttpResponseRedirect('/abone/')
 
-        if kullanicibilgi.save() and kullaniciadres.save():
-            return HttpResponseRedirect('/abone/abonekle')
+
 
     else:
         form = AboneEkle()
@@ -45,32 +73,5 @@ def aboneEkle(request):
 #------------------------------------------------------------------------
 
 def aboneAra(request):
-    if request.method == 'POST':
-        soyad = request.POST.get('last_name')
-
-        try:
-            tckimlik = request.POST['public_ID']
-        except KeyError:
-            tckimlik = None
-
-        telefonno = request.POST.get('phone_number')
-
-        kullaniciid = SubscriberCreate.objects.filter(
-            Q(last_name=soyad) | Q(public_ID=tckimlik) | Q(phone_number=telefonno)
-        )
-        form = kullaniciid
-        context = {
-            "articl":kullaniciid
-        }
-
-
-     #   pass
-        #form = AboneAra()
-        #if form.is_valid():
-        #a = SubscriberCreate.objects.filter(last_name=F('last_name'))
-        #return HttpResponseRedirect('/abone/aboneara')
-    else:
-        form = AboneAra()
-
-    return render(request, "abone/base.html", {'form': form})
+    pass
     #return render(request, 'abone/base.html', {'form': form}) ***bu form mantığını araştır şu abone bitince

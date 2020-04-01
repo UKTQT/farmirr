@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'abone.apps.AboneConfig', #abone
+    'stok.apps.StokConfig', #stok
+
+
+
 ]
 
 MIDDLEWARE = [

@@ -44,27 +44,3 @@ nav ul a li{ padding: 11px 0 11px 35px; }
 nav ul a li:hover {background-color: #ececec; color:#363947;}
 nav ul a:active{background-color: #ececec;}
 nav ul a:hover{text-decoration: none;}
-
-
-.aboneeklebutondiv{ height: 150px; width: 80%; float:left; }
-.butonaboneekle{margin-left:35px; margin-top:30px; width: 280px; height: 100px; background-color:#c0d725; border:none; }
-.butonaboneekle .aboneeklebutonyazi{color:white; margin-right:80px; margin-bottom:30px; font-size:30px; font-family:Arial; font-weight: bold;}
-.aboneekleform{float:left; padding-right:30px; height:auto; width:auto;}
-.aboneekleform p label{width:130px;}
-.aboneekleform select { width: 180px; background-color: #363947;font-size: 15px; font-family:Arial; height: 30px;  color:#fff}
-.aboneekleform select:active{border:none;}
-.aboneekleform select option:hover{background-color: #fff;}
-.abonekaydet{}
-.abonekaydet .abonekaydetbutton{height:40px;  margin-top:30px; float:right; background-color:#c0d725; border:none; }
-.abonekaydet .aboneresetbutton{height:40px; margin-right:15px; float:right; margin-top:30px;}
-
-.abonearadiv{float:left; width:80%; padding:20px 50px; font-family:Arial; font-weight:bold; color:#363947; font-size:30px;}
-.abonearadiv hr{border-color:#363947; opacity: 60%;}
-
-.filtrearaformdiv{float:left; font-family: Arial; padding:0 50px;}
-.filtrearaformdiv span{font-family: Arial;}
-.filtrearaformdiv p{margin-top:10px;}
-.filtrearaformdiv input{width: 180px; margin-right: 20px;}
-
-.kullanicitablo{float:left; padding:30px 50px 0 50px; width: 80%;}
-thead{background-color:#c0d725;font-family:Arial; font-weight:bold;}

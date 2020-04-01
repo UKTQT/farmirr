@@ -1,0 +1,126 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>farmirr</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/stok.css' %}">
+    </head>
+    <body>
+        <nav>
+            <div class="logo">farmirr</div>
+            <ul>
+                <a href=""><li>Abone Yönetimi</li></a>
+                <a href=""><li>Cihaz Yönetimi</li></a>
+                <a href=""><li>Bayilik Yönetimi</li></a>
+                <a href=""><li>Teknik Servis</li></a>
+                <a href=""><li>Stok Yönetimi</li></a>
+                <a href=""><li>SMS Yönetimi</li></a>
+                <a href=""><li>İstatistikler</li></a>
+                <a href=""><li>Muhasebe İşlemleri</li></a>
+                <a href=""><li>Bildirim Yönetimi</li></a>
+            </ul>
+        </nav>
+
+        <div class="maindiv">
+
+            <header></header>
+
+            <div class="addformsroutermain">
+                 <button class="addformsrouterbutton" onclick="location.href='{% url 'gsmekle' %}'">
+                     <div class="addformsrouterbuttontext">GSM Ekle</div>
+                 </button>
+                <button class="addformsrouterbutton" onclick="location.href='{% url 'cihazekle' %}'">
+                     <div class="addformsrouterbuttontext">Cihaz Ekle</div>
+                 </button>
+            </div>
+
+            <div class="stockfiltersearchmain">
+
+                <div class="title1">
+                    <h1>GSM Ara</h1>
+                    <hr>
+                </div>
+
+                <div class="stockfiltersearchform">
+                    <form method="POST" class="post-form">{% csrf_token %}
+                        <span>GSM Numarası:</span>
+                        <input type="text"  name="gsm_number"  value="{{request.POST.gsm_number}}">
+                        <button type="submit" class="stocksearchbutton btn-dark">Gsm Ara</button>
+                    </form>
+                </div>
+
+                <div class="stockfiltersearchtable">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                              <th scope="col">GSM No</th>
+                              <th scope="col">GSM Markası</th>
+                              <th scope="col">Eklenme Tar.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for article in gsmbilgi %}
+                                <tr>
+                                    <th scope="row">{{article.gsm_number}}</th>
+                                    <td>{{article.gsm_brand}}</td>
+                                    <td>{{article.date_of_entry_ınv}}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="stockfiltersearchmain">
+                <div class="title1">
+                    <h1>Cihaz Ara</h1>
+                    <hr>
+                </div>
+                <div class="stockfiltersearchform">
+                    <form method="POST" class="post-form">{% csrf_token %}
+                        <span>Cihaz ID:</span>
+                        <input type="text"  name="device_id"  value="{{request.POST.device_id}}">
+                        <button type="submit" class="stocksearchbutton btn-dark">Cihaz Ara</button>
+                        <br/>
+                        <span>Cihaz Tipi:</span>
+                        <select name="device_type" value="{{request.POST.device_type}}">
+                            <option value="">Sensör Seçiniz</option>
+                            <option value="ws">Hava Sensörü</option>
+                            <option value="ss">Toprak Sensörü</option>
+                            <option value="ps">Basınç Sensörü</option>
+                            <option value="wc">Kuyu merkezi</option>
+                        </select>
+                    </form>
+                </div>
+
+
+
+
+                <div class="stockfiltersearchtable">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                              <th scope="col">Cihaz ID</th>
+                              <th scope="col">Cihaz Tipi</th>
+                              <th scope="col">GSM Des.</th>
+                                <th scope="col">Eklenme Tar.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for device in devicebilgi %}
+                                <tr>
+                                    <th scope="row">{{device.device_id}}</th>
+                                    <td>{{device.device_type}}</td>
+                                    <td>{{device.parent_or_child}}</td>
+                                    <td>{{device.date_of_entry}}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
