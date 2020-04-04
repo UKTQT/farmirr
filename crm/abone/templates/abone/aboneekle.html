@@ -8,48 +8,44 @@
         <link rel="stylesheet" href="{% static 'css/abone.css' %}">
     </head>
     <body>
+        <nav>
+            <div class="logo">farmirr</div>
+            <ul>
+                <a href=""><li>Abone Yönetimi</li></a>
+                <a href=""><li>Cihaz Yönetimi</li></a>
+                <a href=""><li>Bayilik Yönetimi</li></a>
+                <a href=""><li>Teknik Servis</li></a>
+                <a href=""><li>Stok Yönetimi</li></a>
+                <a href=""><li>SMS Yönetimi</li></a>
+                <a href=""><li>İstatistikler</li></a>
+                <a href=""><li>Muhasebe İşlemleri</li></a>
+                <a href=""><li>Bildirim Yönetimi</li></a>
+            </ul>
+        </nav>
+
         <div class="maindiv">
             <header></header>
 
-            <nav>
-                <div class="logo">farmirr</div>
-                    <ul>
-                        <a href=""><li>Abone Yönetimi</li></a>
-                        <a href=""><li>Cihaz Yönetimi</li></a>
-                        <a href=""><li>Bayilik Yönetimi</li></a>
-                        <a href=""><li>Teknik Servis</li></a>
-                        <a href=""><li>Stok Yönetimi</li></a>
-                        <a href=""><li>SMS Yönetimi</li></a>
-                        <a href=""><li>İstatistikler</li></a>
-                        <a href=""><li>Muhasebe İşlemleri</li></a>
-                        <a href=""><li>Bildirim Yönetimi</li></a>
-                    </ul>
-            </nav>
+            <div class="addsubdatamain">
+                <div class="title1">
+                    <h1>Abone Ekle</h1>
+                    <hr>
+                </div>
 
-            <div class="abonearadiv">
-                <h1>Abone Ekle</h1>
-                <hr>
-            </div>
-            <div class="filtrearaformdiv">
-                <form method="POST" class="post-form">{% csrf_token %}
+                <div class="addsubdataform">
+                    <form method="POST" class="post-form">{% csrf_token %}
 
-                        <div class="aboneekleform">{{form.as_p}}</div>
-                        <div class="aboneekleform">{{form2.as_p}}</div>
+                        <div class="addsubdataformdiv">{{form.as_p}}</div>
+                        <div class="addsubdataformdiv">{{form2.as_p}}</div>
 
-
-                    <div class="abonekaydet">
-                        <button type="submit" class="abonekaydetbutton save btn btn-success">Kaydet</button>
-                        <button type="reset" class="aboneresetbutton save btn btn-danger">Temizle</button>
-                    </div>
-
-                </form>
+                        <button type="submit" style="margin-right:100px; float:right;border:#417D00; background: #c0d725;" class="addsubdatabutton btn-success">Kaydet</button>
+                        <button type="reset" style="float:right;" class="addsubdatabutton btn-danger">Temizle</button>
+                    </form>
+                </div>
             </div>
         </div>
     </body>
 </html>
 
 
-{% block aboneekle %}
 
-
-{% endblock %}

@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class SubscriberCreate(models.Model): #abone oluştur
-    subscriber_ID = models.AutoField(unique=True, primary_key=True,) #abone id
+    subscriber_id = models.CharField(max_length=11,primary_key=True) #abone id
     public_ID = models.CharField("Tc Kimlik No:",max_length=11, unique=True, null=False) #tckimlik
     phone_number = models.CharField("Telefon No:",max_length=11, unique=True)
     email_address = models.EmailField("E-Posta:",max_length=40, unique=True)
@@ -95,7 +95,7 @@ TURKEY_CITIES = [
         ('81', 'DÜZCE'),
         ]
 class SubscriberAddressCreate(models.Model): #abone adres oluştur
-    address_owner_ID = SubscriberCreate.subscriber_ID #referans subscriber id
+    address_owner_id = models.CharField(max_length=11,primary_key=True)
     country = models.CharField(verbose_name="Ülke:",max_length=30, default='turkey')
     city = models.CharField(verbose_name="Şehir:",max_length=30,default=TURKEY_CITIES[4],choices=TURKEY_CITIES)
     district = models.CharField(verbose_name="Mahalle / Semt:",max_length=30)
