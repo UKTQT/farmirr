@@ -11,11 +11,11 @@
         <nav>
             <div class="logo">farmirr</div>
             <ul>
-                <a href=""><li>Abone Yönetimi</li></a>
+                <a href="/abone"><li>Abone Yönetimi</li></a>
                 <a href=""><li>Cihaz Yönetimi</li></a>
-                <a href=""><li>Bayilik Yönetimi</li></a>
+                <a href="/bayi"><li>Bayilik Yönetimi</li></a>
                 <a href=""><li>Teknik Servis</li></a>
-                <a href=""><li>Stok Yönetimi</li></a>
+                <a href="/stok"><li>Stok Yönetimi</li></a>
                 <a href=""><li>SMS Yönetimi</li></a>
                 <a href=""><li>İstatistikler</li></a>
                 <a href=""><li>Muhasebe İşlemleri</li></a>
@@ -23,8 +23,14 @@
             </ul>
         </nav>
 
+
         <div class="maindiv">
-            <header></header>
+            <header>
+                <div class="kullanicicikis">
+                    <a href="{% url 'logout' %}">Çıkış</a>
+                </div>
+                 <div class="kullaniciisim">Hoşgeldin {{request.user.get_username}}</div>
+            </header>
 
             <div class="addformsroutermain">
                  <button class="addformsrouterbutton" onclick="location.href='{% url 'aboneekle' %}'">
@@ -46,7 +52,7 @@
                         <input type="text"  name="last_name" value="{{request.POST.last_name}}">
                         <span>Telefon No:</span>
                         <input type="text"  name="phone_number"  value="{{request.POST.phone_number}}">
-                        <button type="submit" class="save btn btn-warning">Ara</button>
+                        <button type="submit" name="kullaniciara" class="save btn btn-warning">Ara</button>
                     </form>
                 </div>
 
@@ -55,24 +61,29 @@
                         <thead>
                             <tr>
                               <th scope="col">id</th>
+                                <th scope="col">Ad</th>
+                              <th scope="col">Soyad</th>
                               <th scope="col">Tc Kimlik</th>
                               <th scope="col">Telefon</th>
                               <th scope="col">Email</th>
-                                <th scope="col">Ad</th>
-                              <th scope="col">Soyad</th>
+                                <th scope="col">Durum</th>
+                                <th scope="col">Detay</th>
+
+
 
                             </tr>
                         </thead>
                         <tbody>
                             {% for article in form %}
                                 <tr>
-                                    <th scope="row">{{article.subscriber_ID}}</th>
+                                    <th scope="row">{{article.subscriber_id}}</th>
+                                    <th>{{article.first_name}}</th>
+                                    <td>{{article.last_name}}</td>
                                     <td>{{article.public_ID}}</td>
                                     <td>{{article.phone_number}}</td>
                                     <td>{{article.email_address}}</td>
-                                    <th>{{article.first_name}}</th>
-                                    <td>{{article.last_name}}</td>
-
+                                    <td></td>
+                                    <td><form action="{% url 'abonedetay' %}" method="POST">{% csrf_token %}<button onclick="location.href='{% url 'abonedetay' %}'" name="sbid" type="submit" value="{{article.subscriber_id}}" class="stocksearchbutton btn btn-dark">Detay</button></form></td>
                                 </tr>
                             {% endfor %}
                         </tbody>

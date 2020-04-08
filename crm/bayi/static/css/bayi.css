@@ -1,0 +1,97 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: farmirr
+*/
+/* SIFIRLAMA KODLARI */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block;}
+body {line-height: 1;}
+ol, ul {list-style: none;}
+blockquote, q {quotes: none;}
+blockquote:before, blockquote:after, q:before, q:after {content: '';content: none;}
+table {border-collapse: collapse;border-spacing: 0;}
+
+/* ------------------------------- */
+.maindiv{ position:absolute; left: 17%;  height: 100%; width: 83%;}
+
+header{background: #c0d725; float:left; width:100%; height: 30px;}
+header .kullanicicikis{float:right; margin-right:20px; margin-top:7px;color: #363947;font-family: Arial; font-weight: bold;}
+header .kullanicicikis a{text-decoration: none;color:Red;}
+header .kullaniciisim{float:right; font-family: Arial; margin-right:20px; margin-top:7px;color: #363947;}
+
+nav{height:100%; position:fixed; width:17%; float:left; background-color: #363947;}
+.logo{height: 80px; color:#c0d725; font-family:Arial; font-size:25px; padding: 25px 55px;}
+nav ul{}
+nav ul a{
+    font-family:Arial;
+    font-size: 15px;
+    color:#ececec;
+    text-decoration: none;}
+
+nav ul a li{ padding: 11px 0 11px 35px; }
+nav ul a li:hover {background-color: #ececec; color:#363947;}
+nav ul a:active{background-color: #ececec;}
+nav ul a:hover{text-decoration: none;}
+
+/* ------ BASE ------ */
+.addformsroutermain {float:left; height: 150px; width: 100%;}
+.addformsrouterbutton{margin-left:35px; margin-top:30px; width: 280px; height: 100px; background-color:#c0d725; border:none; }
+.addformsrouterbutton .addformsrouterbuttontext{color:white; margin-right:80px; margin-bottom:30px; font-size:30px; font-family:Arial; font-weight: bold;}
+
+.sellerfiltersearchmain {float:left; padding:20px 0 0 40px; width: 100%; }
+.sellerfiltersearchmain .title1{width: 100%}
+.sellerfiltersearchmain .title1 h1{font-family:Arial; font-weight:bold; color:#363947; font-size:25px;}
+
+.sellerfiltersearchform {float:left; width:100%; font-family: Arial;}
+.sellerfiltersearchform .stocksearchbutton{width: 110px; background-color: #363947; border-radius:4px; font-weight:bold; height: 30px;}
+/* .stockfiltersearchform p{margin-top:10px;} */
+.sellerfiltersearchform input{bottom:5px; width: 140px; margin-right: 20px;}
+.sellerfiltersearchform select{background-color: #363947; margin-top:4px;  font-size:16px; color:#fff; width:180px; height: 30px; }
+
+.sellerfiltersearchtable{float:left; padding:30px 0 0 0; width: 99%; font-size:14px; font-family: Arial;}
+thead{background-color:#c0d725; font-size:15px; font-weight: bold;}
+
+
+
+/* --------  GSM and Cihaz EKLE  -----------*/
+
+
+
+.addsellerdatamain{padding:40px 0 0 40px; float:left; width:100%; font-family: Arial;}
+.addsellerdatamain .title1 h1{font-weight:bold; color:#363947; font-size:25px;}
+.addsellerdataform{float:left; width:100%; font-family: Arial;}
+.addsellerdataform select{margin-right: 30px; margin-left: 10px; background-color: #363947; margin-top:4px;  font-size:16px; color:#fff; width:180px; height: 30px;}
+.addsellerdataform input{ margin-left: 10px; margin-right: 30px;}
+.addsellerdataform .addsellerdatabutton{width: 110px; margin-right: 10px; border-radius:4px; font-weight:bold; height: 30px;}
+
+.addsellerdataformdiv{float:left; padding-right:30px; height:auto; width:auto;}
+.addsellerdataformdiv p{margin-bottom:10px;}
+.addsellerdataformdiv p label{width:130px;}
+.addsellerdataformdiv textarea{margin-left:10px;}
+.addsellerdataformdiv select {width: 180px; background-color: #363947;font-size: 15px; font-family:Arial; height: 30px;  color:#fff}
+.addsellerdataformdiv select:active{border:none;}
+.addsellerdataformdiv select option:hover{background-color: #fff;}
+
+
+
+
+
+
+
+
+
+
+

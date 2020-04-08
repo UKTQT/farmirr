@@ -28,6 +28,9 @@ table {border-collapse: collapse;border-spacing: 0;}
 .maindiv{ position:absolute; left: 17%;  height: 100%; width: 83%;}
 
 header{background: #c0d725; float:left; width:100%; height: 30px;}
+header .kullanicicikis{float:right; margin-right:20px; margin-top:7px;color: #363947;font-family: Arial; font-weight: bold;}
+header .kullanicicikis a{text-decoration: none;color:Red;}
+header .kullaniciisim{float:right; font-family: Arial; margin-right:20px; margin-top:7px;color: #363947;}
 
 nav{height:100%; position:fixed; width:17%; float:left; background-color: #363947;}
 .logo{height: 80px; color:#c0d725; font-family:Arial; font-size:25px; padding: 25px 55px;}
@@ -81,6 +84,18 @@ thead{background-color:#c0d725; font-size:15px; font-weight: bold;}
 .addsubdataformdiv select {width: 180px; background-color: #363947;font-size: 15px; font-family:Arial; height: 30px;  color:#fff}
 .addsubdataformdiv select:active{border:none;}
 .addsubdataformdiv select option:hover{background-color: #fff;}
+
+
+
+/* --------  ABone Detayy  -----------*/
+
+.listsubs{padding:40px 0 0 40px; float:left; width:100%; font-family: Arial;}
+.listsubs .title1 h1{font-weight:bold; color:#363947; font-size:25px;}
+.listsubs p{margin-bottom:10px;}
+.listsubs p label{width:130px;}
+.listsubsform{width: 50%; float:left;}
+.listsubsbuttondiv{}
+.listsubsbuttondiv .listsubsbutton{margin-top:30px; margin-right: 10px;}
 
 
 

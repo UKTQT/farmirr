@@ -7,5 +7,17 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/farmirr</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="farmirr@45.158.14.218" uuid="53c7ea2e-d1cb-418d-859a-8fe4e75f96ce">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://45.158.14.218:5432/farmirr</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="SIS-TEST@45.158.14.218" uuid="aaf8773f-e3ae-42bd-9bb9-b98d4c470669">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://45.158.14.218:5432/SIS-TEST</jdbc-url>
+    </data-source>
   </component>
 </project>

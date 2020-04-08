@@ -31,14 +31,18 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'django_tables2',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'abone.apps.AboneConfig', #abone
-    'stok.apps.StokConfig', #stok
+    'abone.apps.AboneConfig', #Abone
+    'stok.apps.StokConfig', #Stok
+    'bayi.apps.BayiConfig', #Bayi
+    'account.apps.AccountConfig', #Hesap giriş
+
 
 
 
@@ -55,7 +59,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'crm.urls'
-
+TEMPLATE_DIRS = ('/abone/templates/abone', '/crm/templates')
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -88,7 +92,16 @@ DATABASES = {
         'PORT': os.getenv('DB_PORT', '5432')
     }
 }
-
+"""DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'farmirr',
+        'USER': 'postgres',
+        'PASSWORD': 'Sonofantonv1',
+        'HOST': os.getenv('DB_HOST', '45.158.14.218'),
+        'PORT': os.getenv('DB_PORT', '5432')
+    }
+}"""
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators

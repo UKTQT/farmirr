@@ -11,110 +11,87 @@
         <nav>
             <div class="logo">farmirr</div>
             <ul>
-                <a href=""><li>Abone Yönetimi</li></a>
+                <a href="/abone"><li>Abone Yönetimi</li></a>
                 <a href=""><li>Cihaz Yönetimi</li></a>
-                <a href=""><li>Bayilik Yönetimi</li></a>
+                <a href="/bayi"><li>Bayilik Yönetimi</li></a>
                 <a href=""><li>Teknik Servis</li></a>
-                <a href=""><li>Stok Yönetimi</li></a>
+                <a href="/stok"><li>Stok Yönetimi</li></a>
                 <a href=""><li>SMS Yönetimi</li></a>
                 <a href=""><li>İstatistikler</li></a>
                 <a href=""><li>Muhasebe İşlemleri</li></a>
                 <a href=""><li>Bildirim Yönetimi</li></a>
             </ul>
         </nav>
-
         <div class="maindiv">
-
-            <header></header>
-
+            <header>
+                <div class="kullanicicikis">
+                    <a href="{% url 'logout' %}">Çıkış</a>
+                </div>
+                 <div class="kullaniciisim">Hoşgeldin {{request.user.get_username}}</div>
+            </header>
             <div class="addformsroutermain">
-                 <button class="addformsrouterbutton" onclick="location.href='{% url 'gsmekle' %}'">
-                     <div class="addformsrouterbuttontext">GSM Ekle</div>
-                 </button>
                 <button class="addformsrouterbutton" onclick="location.href='{% url 'cihazekle' %}'">
                      <div class="addformsrouterbuttontext">Cihaz Ekle</div>
-                 </button>
+                </button>
+                <button class="addformsrouterbutton" onclick="location.href='{% url 'stoksatis' %}'">
+                     <div class="addformsrouterbuttontext">Satış/Yönlendirme</div>
+                </button>
+                <button class="addformsrouterbutton" onclick="location.href='{% url 'cihazekle' %}'">
+                     <div class="addformsrouterbuttontext">Stok Çıkışı</div>
+                </button>
             </div>
-
             <div class="stockfiltersearchmain">
-
-                <div class="title1">
-                    <h1>GSM Ara</h1>
-                    <hr>
-                </div>
-
                 <div class="stockfiltersearchform">
-                    <form method="POST" class="post-form">{% csrf_token %}
-                        <span>GSM Numarası:</span>
-                        <input type="text"  name="gsm_number"  value="{{request.POST.gsm_number}}">
-                        <button type="submit" class="stocksearchbutton btn-dark">Gsm Ara</button>
-                    </form>
-                </div>
-
-                <div class="stockfiltersearchtable">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                              <th scope="col">GSM No</th>
-                              <th scope="col">GSM Markası</th>
-                              <th scope="col">Eklenme Tar.</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for article in gsmbilgi %}
-                                <tr>
-                                    <th scope="row">{{article.gsm_number}}</th>
-                                    <td>{{article.gsm_brand}}</td>
-                                    <td>{{article.date_of_entry_ınv}}</td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="stockfiltersearchmain">
-                <div class="title1">
-                    <h1>Cihaz Ara</h1>
-                    <hr>
-                </div>
-                <div class="stockfiltersearchform">
+                    <div class="title1">
+                        <h1>Stok Filtreleyerek Ara</h1>
+                        <hr>
+                    </div>
                     <form method="POST" class="post-form">{% csrf_token %}
                         <span>Cihaz ID:</span>
                         <input type="text"  name="device_id"  value="{{request.POST.device_id}}">
-                        <button type="submit" class="stocksearchbutton btn-dark">Cihaz Ara</button>
-                        <br/>
                         <span>Cihaz Tipi:</span>
                         <select name="device_type" value="{{request.POST.device_type}}">
-                            <option value="">Sensör Seçiniz</option>
+                            <option value="">------</option>
                             <option value="ws">Hava Sensörü</option>
                             <option value="ss">Toprak Sensörü</option>
                             <option value="ps">Basınç Sensörü</option>
+                            <option value="ps2">Basınç Sensörü 2</option>
                             <option value="wc">Kuyu merkezi</option>
+
                         </select>
+                        <span>Cihaz Marka:</span>
+                        <select name="gsm_brand" value="{{request.POST.gsm_brand}}">
+                            <option value="">------</option>
+                            <option value="turkcell">Turkcell</option>
+                            <option value="vodafone">Vodafone</option>
+                            <option value="turktelekom">Türk Telekom</option>
+                        </select>
+                        <button type="submit" class="stocksearchbutton btn-dark">Cihaz Ara</button>
                     </form>
                 </div>
-
-
-
-
                 <div class="stockfiltersearchtable">
                     <table class="table">
                         <thead>
                             <tr>
                               <th scope="col">Cihaz ID</th>
                               <th scope="col">Cihaz Tipi</th>
-                              <th scope="col">GSM Des.</th>
-                                <th scope="col">Eklenme Tar.</th>
+                                <th scope="col">Marka</th>
+                                <th scope="col">Durum</th>
+                                <th scope="col">Abone</th>
+                                <th scope="col">Bayi</th>
+                                <th scope="col">Detay</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {% for device in devicebilgi %}
+                            {% for article in form %}
                                 <tr>
-                                    <th scope="row">{{device.device_id}}</th>
-                                    <td>{{device.device_type}}</td>
-                                    <td>{{device.parent_or_child}}</td>
-                                    <td>{{device.date_of_entry}}</td>
+                                    <th scope="row">{{article.device_id}}</th>
+                                    <td>{{article.device_type}}</td>
+                                    <td>{{article.gsm_brand}}</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td><form action="{% url 'bayidetay' %}" method="POST">{% csrf_token %}<button onclick="location.href='{% url 'bayidetay' %}'" name="sellerid" type="submit" value="{{article.seller_id}}" class="stocksearchbutton btn btn-dark">Detay</button></form></td>
                                 </tr>
                             {% endfor %}
                         </tbody>

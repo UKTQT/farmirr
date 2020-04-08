@@ -11,11 +11,11 @@
         <nav>
             <div class="logo">farmirr</div>
             <ul>
-                <a href=""><li>Abone Yönetimi</li></a>
+                <a href="/abone"><li>Abone Yönetimi</li></a>
                 <a href=""><li>Cihaz Yönetimi</li></a>
-                <a href=""><li>Bayilik Yönetimi</li></a>
+                <a href="/bayi"><li>Bayilik Yönetimi</li></a>
                 <a href=""><li>Teknik Servis</li></a>
-                <a href=""><li>Stok Yönetimi</li></a>
+                <a href="/stok"><li>Stok Yönetimi</li></a>
                 <a href=""><li>SMS Yönetimi</li></a>
                 <a href=""><li>İstatistikler</li></a>
                 <a href=""><li>Muhasebe İşlemleri</li></a>
@@ -24,18 +24,23 @@
         </nav>
 
         <div class="maindiv">
-            <header></header>
+            <header>
+                <div class="kullanicicikis">
+                    <a href="{% url 'logout' %}">Çıkış</a>
+                </div>
+                 <div class="kullaniciisim">Hoşgeldin {{request.user.get_username}}</div>
+            </header>
 
             <div class="addstockdatamain">
                 <div class="title1">
-                    <h1>Cihaz Ekle</h1>
+                    <h1>Stok Ekle</h1>
                     <hr>
                 </div>
 
                 <div class="addstockdataform">
                     <form method="POST" class="post-form">{% csrf_token %}
-                        {{form.as_table}}<br><br>
-                        <button type="submit" style="margin-right:100px; float:right;border:#417D00; background: #c0d725;" class="addstockdatabutton btn-success">Kaydet</button>
+                        {{form.as_p}}
+                        <button type="submit" name="adddevice" style="margin-right:100px; float:right;border:#417D00; background: #c0d725;" class="addstockdatabutton btn-success">Kaydet</button>
                         <button type="reset" style="float:right;" class="addstockdatabutton btn-danger">Temizle</button>
                     </form>
                 </div>

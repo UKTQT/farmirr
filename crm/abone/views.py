@@ -5,7 +5,7 @@ from django.db.models import Q
 from .forms import AboneEkle
 from .forms import AboneEkle2
 import random
-from .forms import AboneAra
+
 import psycopg2
 import time
 from .models import SubscriberCreate
@@ -17,8 +17,21 @@ from django.shortcuts import render
 from pytz import timezone
 # Create your views here.
 import datetime
+def aboneDetay(request):
+    if 'sbid' in request.POST:
+        sbid = request.POST.get('sbid')
+        print(sbid)
+        kullanicidetay = SubscriberCreate.objects.filter(
+            Q(subscriber_id=sbid))
+        print(kullanicidetay)
+        kullaniciadresdetay = SubscriberAddressCreate.objects.filter(
+            Q(address_owner_id=sbid))
+        return render(request, "abone/abonedetay.html", {"form": kullanicidetay,"form2":kullaniciadresdetay})
+
+
 def index(request):
-    if request.method == 'POST':
+
+    if 'kullaniciara' in request.POST:
         soyad = request.POST.get('last_name')
         print(soyad)
         try:
@@ -39,11 +52,9 @@ def index(request):
         )
 
 
-        form = kullaniciid
-        context = {
-            "kullanici": kullaniciid,
-            "kadres": kullaniciadres
-        }
+
+        context = kullaniciid
+
     #   pass
     # form = AboneAra()
     # if form.is_valid():
@@ -52,7 +63,7 @@ def index(request):
     else:
         context = SubscriberCreate.objects.all()
 
-    return render(request, "abone/base.html", {'form': context})
+    return render(request, "abone/base.html", {"form": context})
 
 
 def create():

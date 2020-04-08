@@ -11,11 +11,11 @@
         <nav>
             <div class="logo">farmirr</div>
             <ul>
-                <a href=""><li>Abone Yönetimi</li></a>
+                <a href="/abone"><li>Abone Yönetimi</li></a>
                 <a href=""><li>Cihaz Yönetimi</li></a>
-                <a href=""><li>Bayilik Yönetimi</li></a>
+                <a href="/bayi"><li>Bayilik Yönetimi</li></a>
                 <a href=""><li>Teknik Servis</li></a>
-                <a href=""><li>Stok Yönetimi</li></a>
+                <a href="/stok"><li>Stok Yönetimi</li></a>
                 <a href=""><li>SMS Yönetimi</li></a>
                 <a href=""><li>İstatistikler</li></a>
                 <a href=""><li>Muhasebe İşlemleri</li></a>
@@ -24,7 +24,12 @@
         </nav>
 
         <div class="maindiv">
-            <header></header>
+            <header>
+                <div class="kullanicicikis">
+                    <a href="{% url 'logout' %}">Çıkış</a>
+                </div>
+                 <div class="kullaniciisim">Hoşgeldin {{request.user.get_username}}</div>
+            </header>
 
             <div class="addsubdatamain">
                 <div class="title1">
@@ -38,7 +43,7 @@
                         <div class="addsubdataformdiv">{{form.as_p}}</div>
                         <div class="addsubdataformdiv">{{form2.as_p}}</div>
 
-                        <button type="submit" style="margin-right:100px; float:right;border:#417D00; background: #c0d725;" class="addsubdatabutton btn-success">Kaydet</button>
+                        <button type="submit"  style="margin-right:100px; float:right;border:#417D00; background: #c0d725;" class="addsubdatabutton btn-success">Kaydet</button>
                         <button type="reset" style="float:right;" class="addsubdatabutton btn-danger">Temizle</button>
                     </form>
                 </div>
