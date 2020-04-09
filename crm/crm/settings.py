@@ -63,7 +63,7 @@ TEMPLATE_DIRS = ('/abone/templates/abone', '/crm/templates')
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'crm/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,9 +79,10 @@ TEMPLATES = [
 WSGI_APPLICATION = 'crm.wsgi.application'
 
 
+
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
+o
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -92,16 +93,7 @@ DATABASES = {
         'PORT': os.getenv('DB_PORT', '5432')
     }
 }
-"""DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'farmirr',
-        'USER': 'postgres',
-        'PASSWORD': 'Sonofantonv1',
-        'HOST': os.getenv('DB_HOST', '45.158.14.218'),
-        'PORT': os.getenv('DB_PORT', '5432')
-    }
-}"""
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
