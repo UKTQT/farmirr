@@ -8,21 +8,7 @@
         <link rel="stylesheet" href="{% static 'css/abone.css' %}">
     </head>
     <body>
-        <nav>
-            <div class="logo">farmirr</div>
-            <ul>
-                <a href="/abone"><li>Abone Yönetimi</li></a>
-                <a href=""><li>Cihaz Yönetimi</li></a>
-                <a href="/bayi"><li>Bayilik Yönetimi</li></a>
-                <a href=""><li>Teknik Servis</li></a>
-                <a href="/stok"><li>Stok Yönetimi</li></a>
-                <a href=""><li>SMS Yönetimi</li></a>
-                <a href=""><li>İstatistikler</li></a>
-                <a href=""><li>Muhasebe İşlemleri</li></a>
-                <a href=""><li>Bildirim Yönetimi</li></a>
-            </ul>
-        </nav>
-
+        {% include 'crm/menu.html' %}
 
         <div class="maindiv">
             <header>
@@ -31,19 +17,16 @@
                 </div>
                  <div class="kullaniciisim">Hoşgeldin {{request.user.get_username}}</div>
             </header>
-
             <div class="addformsroutermain">
                  <button class="addformsrouterbutton" onclick="location.href='{% url 'aboneekle' %}'">
                      <div class="addformsrouterbuttontext">Abone Ekle</div>
                  </button>
             </div>
-
             <div class="subscriberfiltersearchmain">
                 <div class="title1">
                     <h1>Abone Ara</h1>
                     <hr>
                 </div>
-
                 <div class="subscriberfiltersearchform">
                     <form method="POST" class="post-form">{% csrf_token %}
                         <span>Tc Kimlik No:</span>
@@ -53,24 +36,23 @@
                         <span>Telefon No:</span>
                         <input type="text"  name="phone_number"  value="{{request.POST.phone_number}}">
                         <button type="submit" name="kullaniciara" class="save btn btn-warning">Ara</button>
+                        <button type="submit" name="kullanicitümü" class="save btn btn-dark">Tümü</button>
                     </form>
                 </div>
-
                 <div class="subscriberfiltersearchtable">
+
+
                     <table class="table">
                         <thead>
                             <tr>
-                              <th scope="col">id</th>
+                                <th scope="col">id</th>
                                 <th scope="col">Ad</th>
-                              <th scope="col">Soyad</th>
-                              <th scope="col">Tc Kimlik</th>
-                              <th scope="col">Telefon</th>
-                              <th scope="col">Email</th>
+                                <th scope="col">Soyad</th>
+                                <th scope="col">Tc Kimlik</th>
+                                <th scope="col">Telefon</th>
+                                <th scope="col">Email</th>
                                 <th scope="col">Durum</th>
                                 <th scope="col">Detay</th>
-
-
-
                             </tr>
                         </thead>
                         <tbody>

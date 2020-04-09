@@ -1,44 +1,40 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.db.models import Q
 from .forms import AboneEkle
 from .forms import AboneEkle2
 import random
-
 import psycopg2
 import time
 from .models import SubscriberCreate
 from .models import SubscriberAddressCreate
 from django import forms
-
-from django.db.models import F
 from django.shortcuts import render
 from pytz import timezone
 # Create your views here.
 import datetime
+
 def aboneDetay(request):
     if 'sbid' in request.POST:
         sbid = request.POST.get('sbid')
-        print(sbid)
         kullanicidetay = SubscriberCreate.objects.filter(
             Q(subscriber_id=sbid))
-        print(kullanicidetay)
         kullaniciadresdetay = SubscriberAddressCreate.objects.filter(
             Q(address_owner_id=sbid))
-        return render(request, "abone/abonedetay.html", {"form": kullanicidetay,"form2":kullaniciadresdetay})
+    else:
+        kullanicidetay = ""
+        kullaniciadresdetay = ""
+    return render(request, "abone/abonedetay.html", {"form": kullanicidetay,"form2":kullaniciadresdetay})
 
 
 def index(request):
-
     if 'kullaniciara' in request.POST:
         soyad = request.POST.get('last_name')
-        print(soyad)
         try:
             tckimlik = request.POST['public_ID']
         except KeyError:
             tckimlik = None
-
         telefonno = request.POST.get('phone_number')
 
         if (soyad == "" and tckimlik == "" and telefonno == ""):
@@ -47,23 +43,15 @@ def index(request):
         kullaniciid = SubscriberCreate.objects.filter(
             Q(last_name=soyad) | Q(public_ID=tckimlik) | Q(phone_number=telefonno)
         )
-        kullaniciadres = SubscriberAddressCreate.objects.filter(
-            Q(address_owner_id=kullaniciid)
-        )
-
-
-
         context = kullaniciid
-
-    #   pass
-    # form = AboneAra()
-    # if form.is_valid():
-    # a = SubscriberCreate.objects.filter(last_name=F('last_name'))
-    # return HttpResponseRedirect('/abone/aboneara')
     else:
         context = SubscriberCreate.objects.all()
 
+    if 'kullanicitümü' in request.POST:
+        context = SubscriberCreate.objects.all()
+
     return render(request, "abone/base.html", {"form": context})
+
 
 
 def create():
@@ -117,7 +105,6 @@ def aboneEkle(request):
         form2 = AboneEkle2(request.POST)
         id = create()
         if form.is_valid():
-
             kullanicibilgi = form.save(commit=False)
             rndid = random.randint(10000000000, 99999999999)
             print(rndid)
@@ -127,21 +114,14 @@ def aboneEkle(request):
             print(rndid)
 
         if form2.is_valid():
-
             kullaniciadres = form2.save(commit=False)
             kullaniciadres.address_owner_id = kullanicibilgi.subscriber_id
             kullaniciadres.save()
-
-
-
-
-
-
+            return redirect('/abone')
 
     else:
         form = AboneEkle()
         form2 = AboneEkle2()
-
     return render(request,'abone/aboneekle.html',{'form': form,'form2':form2})
 
 #------------------------------------------------------------------------
@@ -149,3 +129,6 @@ def aboneEkle(request):
 def aboneAra(request):
     pass
     #return render(request, 'abone/base.html', {'form': form}) ***bu form mantığını araştır şu abone bitince
+
+
+

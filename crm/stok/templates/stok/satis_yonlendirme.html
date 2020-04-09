@@ -8,55 +8,41 @@
         <link rel="stylesheet" href="{% static 'css/stok.css' %}">
     </head>
     <body>
-        <nav>
-            <div class="logo">farmirr</div>
-            <ul>
-                <a href="/abone"><li>Abone Yönetimi</li></a>
-                <a href=""><li>Cihaz Yönetimi</li></a>
-                <a href="/bayi"><li>Bayilik Yönetimi</li></a>
-                <a href=""><li>Teknik Servis</li></a>
-                <a href="/stok"><li>Stok Yönetimi</li></a>
-                <a href=""><li>SMS Yönetimi</li></a>
-                <a href=""><li>İstatistikler</li></a>
-                <a href=""><li>Muhasebe İşlemleri</li></a>
-                <a href=""><li>Bildirim Yönetimi</li></a>
-            </ul>
-        </nav>
-
+        {% include 'crm/menu.html' %}
         <div class="maindiv">
             <header>
                 <div class="kullanicicikis">
                     <a href="{% url 'logout' %}">Çıkış</a>
                 </div>
-                 <div class="kullaniciisim">Hoşgeldin {{request.user.get_username}}</div>
+                <div class="kullaniciisim">Hoşgeldin {{request.user.get_username}}</div>
             </header>
-
             <div class="sellstockdatamain">
-
-
                 <div class="sellstockdataform">
                     <div class="title1">
                         <h1>Satış</h1>
                         <hr>
                     </div>
                     <form method="POST" class="post-form">{% csrf_token %}
-                        {% for article in form %}
-                        <p><label>Boş Cihaz: </label></p>
-                        {% endfor %}
-                        <button type="submit" name="adddevice" style="margin-right:100px; float:right;border:#417D00; background: #c0d725;" class="addstockdatabutton btn-success">Kaydet</button>
-                        <button type="reset" style="float:right;" class="addstockdatabutton btn-danger">Temizle</button>
-                    </form>
-                </div>
-
-                <div class="sellstockdataform">
-                    <div class="title1">
-                        <h1>Yönlendirme</h1>
-                        <hr>
-                    </div>
-                    <form method="POST" class="post-form">{% csrf_token %}
-                        {{form2.as_p}}
-                        <button type="submit" name="adddevice" style="margin-right:100px; float:right;border:#417D00; background: #c0d725;" class="addstockdatabutton btn-success">Kaydet</button>
-                        <button type="reset" style="float:right;" class="addstockdatabutton btn-danger">Temizle</button>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                  <th scope="col">Cihaz ID</th>
+                                  <th scope="col">Cihaz Tipi</th>
+                                    <th scope="col">Marka</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for article in form %}
+                                    <tr>
+                                        <th scope="row">{{article.device_id}}</th>
+                                        <td>{{article.device_type}}</td>
+                                        <td>{{article.gsm_brand}}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        <p><label>Satıcı ID:</label><input type="text"></p><br><br><br>
+                        <button type="submit" name="adddevice" style="margin-right:100px; float:right;border:#417D00; background: #c0d725;" class="sellstockdatabutton btn-success">Satış Yap</button>
                     </form>
                 </div>
             </div>

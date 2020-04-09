@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d64c6d32-8012-4d49-9aaa-9779287706bc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="d64c6d32-8012-4d49-9aaa-9779287706bc" name="Default Changelist" comment="farmirr Son">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/abone/static/css/abone.css" beforeDir="false" afterPath="$PROJECT_DIR$/crm/abone/static/css/abone.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/abone/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/crm/abone/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/abone/templates/abone/abonedetay.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/abone/templates/abone/abonedetay.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crm/abone/templates/abone/aboneekle.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/abone/templates/abone/aboneekle.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crm/abone/templates/abone/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/abone/templates/abone/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/abone/templates/abone/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/abone/templates/abone/menu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/abone/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/crm/abone/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/abone/templates/abone/menu.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/crm/abone/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/crm/abone/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/bayi/templates/bayi/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/bayi/templates/bayi/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/bayi/templates/bayi/bayidetay.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/bayi/templates/bayi/bayidetay.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/bayi/templates/bayi/bayiekle.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/bayi/templates/bayi/bayiekle.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/bayi/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/crm/bayi/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crm/crm/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/crm/crm/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/crm/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/crm/crm/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/stok/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/crm/stok/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/stok/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/stok/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/crm/stok/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crm/stok/static/css/stok.css" beforeDir="false" afterPath="$PROJECT_DIR$/crm/stok/static/css/stok.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crm/stok/templates/stok/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/stok/templates/stok/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crm/stok/templates/stok/cihazekle.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/stok/templates/stok/cihazekle.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/stok/templates/stok/gsmekle.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/stok/templates/stok/satis_yonlendirme.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/stok/templates/stok/satis_yonlendirme.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/stok/templates/stok/tables.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/crm/stok/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/crm/stok/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crm/stok/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/crm/stok/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/templates/menu.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,16 +152,16 @@
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/crm/abone" />
+      <recent name="$PROJECT_DIR$/crm/crm" />
+      <recent name="$PROJECT_DIR$/crm/templates/crm" />
+      <recent name="$PROJECT_DIR$/crm/templates" />
+      <recent name="$PROJECT_DIR$/crm" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/crm/account/static/img" />
       <recent name="$PROJECT_DIR$/crm/abone/templates/abone" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/crm/crm" />
-      <recent name="$PROJECT_DIR$/crm" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/templates" />
-      <recent name="$PROJECT_DIR$/templates/base" />
     </key>
   </component>
   <component name="RunManager" selected="Python.deneme">
@@ -305,7 +305,9 @@
       <workItem from="1586164226356" duration="25715000" />
       <workItem from="1586251152282" duration="5943000" />
       <workItem from="1586279496002" duration="8156000" />
-      <workItem from="1586357765570" duration="2510000" />
+      <workItem from="1586357765570" duration="2618000" />
+      <workItem from="1586363082549" duration="24199000" />
+      <workItem from="1586421823928" duration="582000" />
     </task>
     <task id="LOCAL-00001" summary="ÇALIŞIYOOOOOOOOOOOOOOOOOR SONUNDA">
       <created>1585232034859</created>
@@ -349,14 +351,34 @@
       <option name="project" value="LOCAL" />
       <updated>1585998130815</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Menü tek bir noktaya taşındı ve include ile çekiliyor">
+      <created>1586421936433</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1586421936433</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ÇALIŞIYOOOOOOOOOOOOOOOOOR SONUNDA" />
     <MESSAGE value="bir hata var çözücem" />
     <MESSAGE value="farmirr (stock and device)" />
-    <option name="LAST_COMMIT_MESSAGE" value="farmirr (stock and device)" />
+    <MESSAGE value="farmirr Son" />
+    <MESSAGE value="Menü tek bir noktaya taşındı ve include ile çekiliyor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Menü tek bir noktaya taşındı ve include ile çekiliyor" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1473" y="44" width="800" height="677" key="#Notifications" timestamp="1585779041606">
@@ -386,11 +408,11 @@
       <screen x="1366" y="0" width="1024" height="768" />
     </state>
     <state x="1710" y="274" width="326" height="217" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/0.27.1366.741/1366.0.1024.768@1366.0.1024.768" timestamp="1585926871807" />
-    <state x="1520" y="0" width="1262" height="741" key="CommitChangelistDialog2" timestamp="1586363011352">
+    <state x="1520" y="0" width="1262" height="741" key="CommitChangelistDialog2" timestamp="1586422514497">
       <screen x="1366" y="0" width="1024" height="768" />
     </state>
     <state x="97" y="27" width="1262" height="741" key="CommitChangelistDialog2/0.27.1366.741/1366.0.1024.768@0.27.1366.741" timestamp="1585998129611" />
-    <state x="1520" y="0" width="860" height="768" key="CommitChangelistDialog2/0.27.1366.741/1366.0.1024.768@1366.0.1024.768" timestamp="1586363011352" />
+    <state x="1520" y="0" width="860" height="768" key="CommitChangelistDialog2/0.27.1366.741/1366.0.1024.768@1366.0.1024.768" timestamp="1586422514497" />
     <state x="248" y="27" width="860" height="741" key="CommitChangelistDialog2/0.27.1366.741/1366.0.1440.900@0.27.1366.741" timestamp="1583087207675" />
     <state x="1366" y="73" width="1014" height="622" key="DiffContextDialog" timestamp="1585777981409">
       <screen x="1366" y="0" width="1024" height="768" />
@@ -446,6 +468,10 @@
       <screen x="1366" y="0" width="1024" height="768" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.27.1366.741/1366.0.1024.768@1366.0.1024.768" timestamp="1585483730371" />
+    <state x="1745" y="300" width="256" height="166" key="VCS.EditChangelistDialog" timestamp="1586363272861">
+      <screen x="1366" y="0" width="1024" height="768" />
+    </state>
+    <state x="1745" y="300" width="256" height="166" key="VCS.EditChangelistDialog/0.27.1366.741/1366.0.1024.768@1366.0.1024.768" timestamp="1586363272861" />
     <state x="231" y="146" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1585998143039">
       <screen x="0" y="27" width="1366" height="741" />
     </state>

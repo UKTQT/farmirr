@@ -8,20 +8,7 @@
         <link rel="stylesheet" href="{% static 'css/stok.css' %}">
     </head>
     <body>
-        <nav>
-            <div class="logo">farmirr</div>
-            <ul>
-                <a href="/abone"><li>Abone Yönetimi</li></a>
-                <a href=""><li>Cihaz Yönetimi</li></a>
-                <a href="/bayi"><li>Bayilik Yönetimi</li></a>
-                <a href=""><li>Teknik Servis</li></a>
-                <a href="/stok"><li>Stok Yönetimi</li></a>
-                <a href=""><li>SMS Yönetimi</li></a>
-                <a href=""><li>İstatistikler</li></a>
-                <a href=""><li>Muhasebe İşlemleri</li></a>
-                <a href=""><li>Bildirim Yönetimi</li></a>
-            </ul>
-        </nav>
+        {% include 'crm/menu.html' %}
         <div class="maindiv">
             <header>
                 <div class="kullanicicikis">
@@ -36,7 +23,7 @@
                 <button class="addformsrouterbutton" onclick="location.href='{% url 'stoksatis' %}'">
                      <div class="addformsrouterbuttontext">Satış/Yönlendirme</div>
                 </button>
-                <button class="addformsrouterbutton" onclick="location.href='{% url 'cihazekle' %}'">
+                <button class="addformsrouterbutton" onclick="location.href='{% url 'stokcikis' %}'">
                      <div class="addformsrouterbuttontext">Stok Çıkışı</div>
                 </button>
             </div>
@@ -57,7 +44,6 @@
                             <option value="ps">Basınç Sensörü</option>
                             <option value="ps2">Basınç Sensörü 2</option>
                             <option value="wc">Kuyu merkezi</option>
-
                         </select>
                         <span>Cihaz Marka:</span>
                         <select name="gsm_brand" value="{{request.POST.gsm_brand}}">
@@ -66,7 +52,8 @@
                             <option value="vodafone">Vodafone</option>
                             <option value="turktelekom">Türk Telekom</option>
                         </select>
-                        <button type="submit" class="stocksearchbutton btn-dark">Cihaz Ara</button>
+                        <button type="submit" name="stokara" class="stocksearchbutton btn-dark">Cihaz Ara</button>
+                        <button type="submit" name="stoktümü" class="stocksearchbutton btn-dark">Tümü</button>
                     </form>
                 </div>
                 <div class="stockfiltersearchtable">
@@ -91,7 +78,7 @@
                                     <td>--</td>
                                     <td>--</td>
                                     <td>--</td>
-                                    <td><form action="{% url 'bayidetay' %}" method="POST">{% csrf_token %}<button onclick="location.href='{% url 'bayidetay' %}'" name="sellerid" type="submit" value="{{article.seller_id}}" class="stocksearchbutton btn btn-dark">Detay</button></form></td>
+                                    <td><form action="{% url 'stokdetay' %}" method="POST">{% csrf_token %}<button onclick="location.href='{% url 'stokdetay' %}'" name="stockid" type="submit" value="{{article.device_id}}" class="stocksearchbutton btn btn-dark">Detay</button></form></td>
                                 </tr>
                             {% endfor %}
                         </tbody>

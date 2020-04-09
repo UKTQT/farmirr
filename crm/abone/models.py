@@ -1,4 +1,5 @@
 from django.db import models
+from django_tables2 import tables
 
 # Create your models here.
 class SubscriberCreate(models.Model): #abone oluştur

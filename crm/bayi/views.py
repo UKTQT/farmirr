@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import seller
 from .models import selleraddress
 from .forms import BayiEkle
@@ -8,29 +8,22 @@ from django.db.models import Q
 
 # Create your views here.
 def index(request):
-    if request.method == 'POST':
+    if 'bayitümü' in request.POST:
+        context = seller.objects.all()
+
+    if 'bayiara' in request.POST:
         sellerid = request.POST.get('seller_id')
         sellername = request.POST.get('seller_name')
         telefonno = request.POST.get('phone_number')
-
-        #try:
-         #   tckimlik = request.POST['public_ID']
-        #except KeyError:
-         #   tckimlik = None
-
         if (sellerid == "" and sellername == "" and telefonno == ""):
             context = seller.objects.all()
-
         sellerid = seller.objects.filter(
-            Q(seller_id=sellerid) | Q(seller_name=sellername) | Q(phone_number=telefonno)
-        )
-
+            Q(seller_id=sellerid) | Q(seller_name=sellername) | Q(phone_number=telefonno))
         context = sellerid
-
     else:
         context = seller.objects.all()
-
     return render(request, "bayi/base.html", {'form': context})
+
 
 def bayiDetay(request):
     if 'sellerid' in request.POST:
@@ -62,6 +55,7 @@ def bayiEkle(request):
             selleradres.address_owner_id = sellerbilgi.seller_id
             selleradres.save()
             form2 = BayiAdres()
+            return redirect('/bayi')
     else:
         form = BayiEkle()
         form2 = BayiAdres()

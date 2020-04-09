@@ -82,9 +82,9 @@ thead{background-color:#c0d725; font-size:15px; font-weight: bold;}
 
 /* --------  Cihaz sat ve yönlendir  -----------*/
 
-.sellstockdatamain{border:Solid red 1px;padding:40px 0 0 40px;float:left; width:100%; font-family: Arial;}
-.sellstockdatamain .sellstockdataform{border:solid blue 1px; float:left; width:50%; font-family: Arial;}
+.sellstockdatamain{padding:40px 0 0 40px;float:left; width:100%; font-family: Arial;}
+.sellstockdatamain .sellstockdataform{float:left; width:50%; font-family: Arial;}
 .sellstockdatamain .sellstockdataform .title1 h1{font-weight:bold; color:#363947; font-size:25px;}
-
+.sellstockdatamain .sellstockdataform .sellstockdatabutton{width: 110px; margin-right: 10px; border-radius:4px; font-weight:bold; height: 30px;}
 
 
