@@ -1,0 +1,24 @@
+<nav>
+    <div class="logo">farmirr</div>
+    <ul>
+        {% if perms.abone.add_subscribercreate %}
+            <a href="/abone"><li>Abone Yönetimi</li></a>
+        {% endif %}
+
+        <a href=""><li>Cihaz Yönetimi</li></a>
+
+        {% if perms.abone.add_subscribercreate %}
+        <a href="/bayi"><li>Bayilik Yönetimi</li></a>
+        {% endif %}
+
+        {% if perms.bayi.delete_seller %}
+            <a href=""><li>Teknik Servis</li></a>
+        {% endif %}
+
+        <a href="/stok"><li>Stok Yönetimiw</li></a>
+        <a href=""><li>SMS Yönetimi</li></a>
+        <a href=""><li>İstatistikler</li></a>
+        <a href=""><li>Muhasebe İşlemleri</li></a>
+        <a href=""><li>Bildirim Yönetimi</li></a>
+    </ul>
+</nav>

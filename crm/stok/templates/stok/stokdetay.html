@@ -7,50 +7,103 @@
         <link rel="stylesheet" href="{% static 'css/abone.css' %}">
     </head>
     <body>
-        <nav>
-            <div class="logo">farmirr</div>
-            <ul>
-                <a href="/abone"><li>Abone Yönetimi</li></a>
-                <a href=""><li>Cihaz Yönetimi</li></a>
-                <a href="/bayi"><li>Bayilik Yönetimi</li></a>
-                <a href=""><li>Teknik Servis</li></a>
-                <a href="/stok"><li>Stok Yönetimi</li></a>
-                <a href=""><li>SMS Yönetimi</li></a>
-                <a href=""><li>İstatistikler</li></a>
-                <a href=""><li>Muhasebe İşlemleri</li></a>
-                <a href=""><li>Bildirim Yönetimi</li></a>
-            </ul>
-        </nav>
-
+        {% include 'crm/menu.html' %}
         <div class="maindiv">
             <header>
-                <div class="kullanicicikis">
+                 <div class="kullanicicikis">
                     <a href="{% url 'logout' %}">Çıkış</a>
-                </div>
+                 </div>
                  <div class="kullaniciisim">Hoşgeldin {{request.user.get_username}}</div>
             </header>
-
             <div class="listsubs">
                 <div class="title1">
                     <h1>Stok Detay / Güncelle / Sil</h1>
                     <hr>
                 </div>
-                <form>
+                <form action="{% url 'stokdetay' %}" method="POST">{% csrf_token %}
+                    {% for article in form %}
                         <div class="listsubsform">
-                            {% for article in form %}
-                                <p><label>Cihaz ID: </label><input value="{{article.device_id}}"></p>
-                                <p><label>Cihaz Tipi: </label><input value="{{article.device_type}}"></p>
-                                <p><label>Vergi No: </label><input value="{{article.gsm_brand}}"></p>
-                                <p><label>Yetki: </label><input value="{{article.authority}}"></p>
-                                <p><label>Telefon No: </label><input value="{{article.phone_number}}"></p>
-                                <p><label>E Mail Adres: </label><input value="{{article.email_address}}"></p>
-                                <p><label>Şifre: </label><input value="{{article.password}}"></p>
-                            {% endfor %}
+                            <p><label>Cihaz ID: </label><input name="device_id" value="{{article.device_id}}" ></p>
+                            <p><label>Cihaz Tipi: </label>
+                                {% if article.device_type == 'ws' %}
+                                    <select name="device_type" value="{{request.POST.device_type}}">
+                                        <option value="ws">Hava Sensörü</option>
+                                        <option value="ss">Toprak Sensörü</option>
+                                        <option value="ps">Basınç Sensörü</option>
+                                        <option value="ps2">Basınç Sensörü 2</option>
+                                        <option value="wc">Kuyu merkezi</option>
+                                    </select>
+                                {% elif article.device_type == 'ss' %}
+                                    <select name="device_type" value="{{request.POST.device_type}}">
+                                        <option value="ss">Toprak Sensörü</option>
+                                        <option value="ws">Hava Sensörü</option>
+                                        <option value="ps">Basınç Sensörü</option>
+                                        <option value="ps2">Basınç Sensörü 2</option>
+                                        <option value="wc">Kuyu merkezi</option>
+                                    </select>
+                                {% elif article.device_type == 'ps' %}
+                                    <select name="device_type" value="{{request.POST.device_type}}">
+                                        <option value="ps">Basınç Sensörü</option>
+                                        <option value="ss">Toprak Sensörü</option>
+                                        <option value="ws">Hava Sensörü</option>
+                                        <option value="ps2">Basınç Sensörü 2</option>
+                                        <option value="wc">Kuyu merkezi</option>
+                                    </select>
+                                {% elif article.device_type == 'ps2' %}
+                                    <select name="device_type" value="{{request.POST.device_type}}">
+                                        <option value="ps2">Basınç Sensörü 2</option>
+                                        <option value="ps">Basınç Sensörü</option>
+                                        <option value="ss">Toprak Sensörü</option>
+                                        <option value="ws">Hava Sensörü</option>
+                                        <option value="wc">Kuyu merkezi</option>
+                                    </select>
+                                {% elif article.device_type == 'wc' %}
+                                    <select name="device_type" value="{{request.POST.device_type}}">
+                                        <option value="wc">Kuyu merkezi</option>
+                                        <option value="ps2">Basınç Sensörü 2</option>
+                                        <option value="ps">Basınç Sensörü</option>
+                                        <option value="ss">Toprak Sensörü</option>
+                                        <option value="ws">Hava Sensörü</option>
+                                    </select>
+                                {% endif %}
+                            </p>
+                            <p>
+                                <label>Cihaz Tipi:</label>
+                                {% if article.gsm_brand == 'turkcell' %}
+                                    <select name="gsm_brand" value="{{request.POST.gsm_brand}}">
+                                        <option value="turkcell">Turkcell</option>
+                                        <option value="vodafone">Vodafone</option>
+                                        <option value="turktelekom">Türk Telekom</option>
+                                    </select>
+                                {% elif article.gsm_brand == 'vodafone' %}
+                                    <select name="gsm_brand" value="{{request.POST.gsm_brand}}">
+                                        <option value="vodafone">Vodafone</option>
+                                        <option value="turkcell">Turkcell</option>
+                                        <option value="turktelekom">Türk Telekom</option>
+                                    </select>
+                                {% elif article.gsm_brand == 'turktelekom' %}
+                                    <select name="gsm_brand" value="{{request.POST.gsm_brand}}">
+                                        <option value="turktelekom">Türk Telekom</option>
+                                        <option value="vodafone">{{article.gsm_brand}}</option>
+                                        <option value="turkcell">Turkcell</option>
+                                    </select>
+                                {% elif article.gsm_brand == '' %}
+                                    <select name="gsm_brand" value="{{request.POST.gsm_brand}}">
+                                        <option value="">--------</option>
+                                        <option value="turktelekom">Türk Telekom</option>
+                                        <option value="vodafone">{{article.gsm_brand}}</option>
+                                        <option value="turkcell">Turkcell</option>
+                                    </select>
+                                {% endif %}
+                            </p>
+                            <p><label>Sahip Satıcı: </label><input disabled value="Mevcut Değil"></p>
+                            <p><label>Sahip Abone: </label><input disabled value="Mevcut Değil"></p>
                         </div>
-                    <div class="listsubsbuttondiv">
-                        <button type="submit" style="border-color:#c0d725; color: #363947; background-color: #c0d725;" class="listsubsbutton btn btn-success">Güncelle</button>
-                        <button type="submit"  class="listsubsbutton btn btn-danger">Bayiyi Sil</button>
-                    </div>
+                        <div class="listsubsbuttondiv">
+                            <button name="deviceupdatestock" type="submit" style="border-color:#c0d725; color: #363947; background-color: #c0d725;" class="listsubsbutton btn btn-success">Güncelle</button>
+                            <button name="devicedeletestock" type="submit" value="{{article.device_id}}" class="listsubsbutton btn btn-dark">Cihazı Sil</button>
+                        </div>
+                    {% endfor %}
                 </form>
             </div>
         </div>
