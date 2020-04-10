@@ -5,6 +5,7 @@ from django_tables2 import tables
 class SubscriberCreate(models.Model): #abone oluştur
     subscriber_id = models.CharField(max_length=11,primary_key=True) #abone id
     public_ID = models.CharField("Tc Kimlik No:",max_length=11, unique=True, null=False) #tckimlik
+    seller_id = models.CharField("Bayi:", max_length=15, default=0)
     phone_number = models.CharField("Telefon No:",max_length=11, unique=True)
     email_address = models.EmailField("E-Posta:",max_length=40, unique=True)
     first_name = models.CharField("Ad:",max_length=15, null=False)

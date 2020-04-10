@@ -68,7 +68,7 @@
                                 {% endif %}
                             </p>
                             <p>
-                                <label>Cihaz Tipi:</label>
+                                <label>Cihaz Marka:</label>
                                 {% if article.gsm_brand == 'turkcell' %}
                                     <select name="gsm_brand" value="{{request.POST.gsm_brand}}">
                                         <option value="turkcell">Turkcell</option>
@@ -87,7 +87,7 @@
                                         <option value="vodafone">{{article.gsm_brand}}</option>
                                         <option value="turkcell">Turkcell</option>
                                     </select>
-                                {% elif article.gsm_brand == '' %}
+                                {% elif article.gsm_brand == None %}
                                     <select name="gsm_brand" value="{{request.POST.gsm_brand}}">
                                         <option value="">--------</option>
                                         <option value="turktelekom">Türk Telekom</option>
@@ -96,8 +96,8 @@
                                     </select>
                                 {% endif %}
                             </p>
-                            <p><label>Sahip Satıcı: </label><input disabled value="Mevcut Değil"></p>
-                            <p><label>Sahip Abone: </label><input disabled value="Mevcut Değil"></p>
+                            <p><label>Bayi: </label><input disabled value="{{article.seller_id}}"></p>
+                            <p><label>Abone: </label><input disabled value="{{article.subscriber_id}}"></p>
                         </div>
                         <div class="listsubsbuttondiv">
                             <button name="deviceupdatestock" type="submit" style="border-color:#c0d725; color: #363947; background-color: #c0d725;" class="listsubsbutton btn btn-success">Güncelle</button>

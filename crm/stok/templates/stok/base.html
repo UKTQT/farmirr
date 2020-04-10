@@ -16,16 +16,22 @@
                 </div>
                  <div class="kullaniciisim">Hoşgeldin {{request.user.get_username}}</div>
             </header>
+
+
             <div class="addformsroutermain">
-                <button class="addformsrouterbutton" onclick="location.href='{% url 'cihazekle' %}'">
-                     <div class="addformsrouterbuttontext">Cihaz Ekle</div>
-                </button>
-                <button class="addformsrouterbutton" onclick="location.href='{% url 'stoksatis' %}'">
-                     <div class="addformsrouterbuttontext">Satış/Yönlendirme</div>
-                </button>
-                <button class="addformsrouterbutton" onclick="location.href='{% url 'stokcikis' %}'">
-                     <div class="addformsrouterbuttontext">Stok Çıkışı</div>
-                </button>
+                {% if request.user.seller_id == None %}
+
+                        <button class="addformsrouterbutton" onclick="location.href='{% url 'cihazekle' %}'">
+                             <div class="addformsrouterbuttontext">Cihaz Ekle</div>
+                        </button>
+                        <button class="addformsrouterbutton" onclick="location.href='{% url 'stoksatis' %}'">
+                             <div class="addformsrouterbuttontext">Satış/Yönlendirme</div>
+                        </button>
+                        <button class="addformsrouterbutton" onclick="location.href='{% url 'stokcikis' %}'">
+                             <div class="addformsrouterbuttontext">Stok Çıkışı</div>
+                        </button>
+
+                {% endif %}
             </div>
             <div class="stockfiltersearchmain">
                 <div class="stockfiltersearchform">
@@ -75,9 +81,9 @@
                                     <th scope="row">{{article.device_id}}</th>
                                     <td>{{article.device_type}}</td>
                                     <td>{{article.gsm_brand}}</td>
-                                    <td>--</td>
-                                    <td>--</td>
-                                    <td>--</td>
+                                    <td>{{article.status}}</td>
+                                    <td>{{article.subscriber_id}}</td>
+                                    <td>{{article.seller_id}}</td>
                                     <td><form action="{% url 'stokdetay' %}" method="POST">{% csrf_token %}<button onclick="location.href='{% url 'stokdetay' %}'" name="stockid" type="submit" value="{{article.device_id}}" class="stocksearchbutton btn btn-dark">Detay</button></form></td>
                                 </tr>
                             {% endfor %}

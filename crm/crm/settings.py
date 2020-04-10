@@ -43,9 +43,6 @@ INSTALLED_APPS = [
     'bayi.apps.BayiConfig', #Bayi
     'account.apps.AccountConfig', #Hesap giriş
 
-
-
-
 ]
 
 MIDDLEWARE = [
@@ -58,8 +55,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+AUTH_USER_MODEL = 'account.Profile'
+
 ROOT_URLCONF = 'crm.urls'
-TEMPLATE_DIRS = ('/abone/templates/abone', '/crm/templates')
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -82,7 +81,7 @@ WSGI_APPLICATION = 'crm.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-o
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',

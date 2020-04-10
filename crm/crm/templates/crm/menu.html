@@ -7,15 +7,15 @@
 
         <a href=""><li>Cihaz Yönetimi</li></a>
 
-        {% if perms.abone.add_subscribercreate %}
-        <a href="/bayi"><li>Bayilik Yönetimi</li></a>
+        {% if perms.bayi.add_seller %}
+            <a href="/bayi"><li>Bayilik Yönetimi</li></a>
         {% endif %}
 
-        {% if perms.bayi.delete_seller %}
-            <a href=""><li>Teknik Servis</li></a>
-        {% endif %}
+        <a href=""><li>Teknik Servis</li></a>
 
-        <a href="/stok"><li>Stok Yönetimiw</li></a>
+        {% if perms.stok.add_inventory_device %}
+            <a href="/stok"><li>Stok Yönetimi</li></a>
+        {% endif %}
         <a href=""><li>SMS Yönetimi</li></a>
         <a href=""><li>İstatistikler</li></a>
         <a href=""><li>Muhasebe İşlemleri</li></a>

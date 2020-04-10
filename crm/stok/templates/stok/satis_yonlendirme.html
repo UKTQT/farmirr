@@ -22,13 +22,16 @@
                         <h1>Satış</h1>
                         <hr>
                     </div>
-                    <form method="POST" class="post-form">{% csrf_token %}
+
+                   <form action="{% url 'stoksatis' %}" method="POST">{% csrf_token %}
+                        <p><label>Satıcı ID:</label><input name="cihazsellerid" type="text"></p><br><br><br>
                         <table class="table">
                             <thead>
                                 <tr>
                                   <th scope="col">Cihaz ID</th>
                                   <th scope="col">Cihaz Tipi</th>
                                     <th scope="col">Marka</th>
+                                    <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -37,12 +40,11 @@
                                         <th scope="row">{{article.device_id}}</th>
                                         <td>{{article.device_type}}</td>
                                         <td>{{article.gsm_brand}}</td>
+                                        <td><button onclick="location.href='{% url 'stoksatis' %}'" style="border:#417D00; background: #c0d725;" name="devicesell" type="submit" value="{{article.device_id}}" class="sellstockdatabutton btn btn-dark">Cihazı Sat</button></td>
                                     </tr>
                                 {% endfor %}
                             </tbody>
                         </table>
-                        <p><label>Satıcı ID:</label><input type="text"></p><br><br><br>
-                        <button type="submit" name="adddevice" style="margin-right:100px; float:right;border:#417D00; background: #c0d725;" class="sellstockdatabutton btn-success">Satış Yap</button>
                     </form>
                 </div>
             </div>

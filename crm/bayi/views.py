@@ -4,7 +4,10 @@ from .models import selleraddress
 from .forms import BayiEkle
 from .forms import BayiAdres
 import random
+import sys
 from django.db.models import Q
+from django.contrib.auth.models import User
+from  account.models import Profile
 
 # Create your views here.
 def index(request):
@@ -48,6 +51,10 @@ def bayiEkle(request):
             sellerbilgi.seller_id = rndid
             sellerbilgi.user = request.user
             sellerbilgi.save()
+            selleruser = Profile.objects.create_user(seller_id=sellerbilgi.seller_id,username=sellerbilgi.seller_name,email=sellerbilgi.email_address,password=sellerbilgi.password)
+            selleruser.is_superuser = False
+            selleruser.is_staff = False
+            selleruser.save()
             form = BayiEkle()
 
         if form2.is_valid():

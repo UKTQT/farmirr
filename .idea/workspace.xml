@@ -5,23 +5,22 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crm/abone/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/crm/abone/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crm/abone/templates/abone/abonedetay.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/abone/templates/abone/abonedetay.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/abone/templates/abone/aboneekle.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/abone/templates/abone/aboneekle.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crm/abone/templates/abone/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/abone/templates/abone/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/abone/templates/abone/menu.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/crm/abone/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/crm/abone/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/bayi/templates/bayi/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/bayi/templates/bayi/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/bayi/templates/bayi/bayidetay.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/bayi/templates/bayi/bayidetay.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/bayi/templates/bayi/bayiekle.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/bayi/templates/bayi/bayiekle.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/account/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/crm/account/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/account/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/crm/account/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/account/templates/account/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/account/templates/account/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crm/bayi/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/crm/bayi/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crm/crm/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/crm/crm/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/stok/static/css/stok.css" beforeDir="false" afterPath="$PROJECT_DIR$/crm/stok/static/css/stok.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/crm/templates/crm/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/crm/templates/crm/menu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/crm/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/crm/crm/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/materialize" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/stok/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/crm/stok/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crm/stok/templates/stok/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/stok/templates/stok/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/stok/templates/stok/cihazekle.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/stok/templates/stok/cihazekle.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crm/stok/templates/stok/satis_yonlendirme.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/stok/templates/stok/satis_yonlendirme.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/stok/templates/stok/tables.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/stok/templates/stok/stokdetay.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/stok/templates/stok/stokdetay.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crm/stok/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/crm/stok/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crm/stok/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/crm/stok/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/templates/menu.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,8 +105,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -147,21 +146,22 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/crm/account/static/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/crm" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/crm" />
+      <recent name="$PROJECT_DIR$/crm/account/static/img" />
+      <recent name="$PROJECT_DIR$/crm/abone/templates/abone" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/crm/abone" />
       <recent name="$PROJECT_DIR$/crm/crm" />
       <recent name="$PROJECT_DIR$/crm/templates/crm" />
       <recent name="$PROJECT_DIR$/crm/templates" />
       <recent name="$PROJECT_DIR$/crm" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/crm/account/static/img" />
-      <recent name="$PROJECT_DIR$/crm/abone/templates/abone" />
     </key>
   </component>
   <component name="RunManager" selected="Python.deneme">
@@ -308,6 +308,8 @@
       <workItem from="1586357765570" duration="2618000" />
       <workItem from="1586363082549" duration="24199000" />
       <workItem from="1586421823928" duration="582000" />
+      <workItem from="1586468244676" duration="10745000" />
+      <workItem from="1586483007434" duration="9945000" />
     </task>
     <task id="LOCAL-00001" summary="ÇALIŞIYOOOOOOOOOOOOOOOOOR SONUNDA">
       <created>1585232034859</created>
@@ -366,7 +368,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -394,9 +398,10 @@
     </state>
     <state x="0" y="67" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1366.741/1366.0.1024.768@0.27.1366.741" timestamp="1585993969224" />
     <state x="1422" y="40" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1366.741/1366.0.1024.768@1366.0.1024.768" timestamp="1586017126587" />
-    <state x="1650" y="180" width="556" height="405" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585583016619">
-      <screen x="1366" y="0" width="1024" height="768" />
+    <state x="379" y="201" width="556" height="405" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586474793993">
+      <screen x="0" y="27" width="1366" height="741" />
     </state>
+    <state x="379" y="201" key="#com.intellij.fileTypes.FileTypeChooser/0.27.1366.741/1366.0.1024.768@0.27.1366.741" timestamp="1586474793993" />
     <state x="1650" y="180" width="556" height="405" key="#com.intellij.fileTypes.FileTypeChooser/0.27.1366.741/1366.0.1024.768@1366.0.1024.768" timestamp="1585583016619" />
     <state x="379" y="201" width="598" height="390" key="#com.intellij.fileTypes.FileTypeChooser/0.27.1366.741/1366.0.1440.900@0.27.1366.741" timestamp="1583078833683" />
     <state x="379" y="201" width="612" height="390" key="#com.intellij.fileTypes.FileTypeChooser/0.27.1366.741@0.27.1366.741" timestamp="1583586605568" />
