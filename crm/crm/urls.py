@@ -22,6 +22,9 @@ urlpatterns = [
     path('abone/', include('abone.urls')),
     path('stok/', include('stok.urls')),
     path('bayi/', include('bayi.urls')),
+    path('cihaz/', include('cihaz.urls')),
+    path('bildirim/', include('bildirim.urls')),
+
 
 
 

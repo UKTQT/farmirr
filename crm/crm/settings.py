@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'stok.apps.StokConfig', #Stok
     'bayi.apps.BayiConfig', #Bayi
     'account.apps.AccountConfig', #Hesap giriş
+    'teknikservis.apps.TeknikservisConfig', #Teknik servis
+    'cihaz.apps.CihazConfig', #Cihaz
+    'bildirim.apps.BildirimConfig', #Bildirim
 
 ]
 

@@ -11,12 +11,41 @@ from .models import SubscriberCreate
 from .models import SubscriberAddressCreate
 from django import forms
 from django.shortcuts import render
+from bildirim.models import bildirim
 from pytz import timezone
 # Create your views here.
 import datetime
 
 def aboneDetay(request):
+    if 'abonedetaypasif' in request.POST:
+        abonedetaypasifid = request.POST.get('abonedetaypasif')
+        SubscriberCreate.objects.filter(subscriber_id=abonedetaypasifid).update(status ='pasif')
+        SubscriberAddressCreate.objects.filter(address_owner_id=abonedetaypasifid).update(status='pasif')
+        return redirect('/abone')
+
+
+    if 'abonedetayguncelle' in request.POST:
+
+        aboneid = request.POST.get('abonedetayguncelle')
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        public_ID = request.POST.get('public_ID')
+        phone_number = request.POST.get('phone_number')
+        email_address = request.POST.get('email_address')
+        country = request.POST.get('country')
+        city = request.POST.get('city')
+        district = request.POST.get('district')
+        village = request.POST.get('village')
+        address = request.POST.get('address')
+
+        SubscriberCreate.objects.filter(subscriber_id=aboneid).update(first_name=first_name,last_name=last_name,public_ID=public_ID,phone_number=phone_number,email_address=email_address)
+        SubscriberAddressCreate.objects.filter(address_owner_id=aboneid).update(country=country, city=city,district=district, village=village,address=address)
+        return redirect('/abone')
+
+
+
     if 'sbid' in request.POST:
+
         sbid = request.POST.get('sbid')
         kullanicidetay = SubscriberCreate.objects.filter(
             Q(subscriber_id=sbid))
@@ -36,7 +65,6 @@ def index(request):
         except KeyError:
             tckimlik = None
         telefonno = request.POST.get('phone_number')
-
 
         if (soyad == "" and tckimlik == "" and telefonno == ""):
             form = SubscriberCreate.objects.all()
@@ -59,7 +87,7 @@ def index(request):
 
     if 'kullanicitümü' in request.POST:
         if request.user.has_perm('abone.add_subscribercreate'):
-            if request.user.seller_id != 0:
+            if request.user.seller_id != None:
                 kullaniciid = SubscriberCreate.objects.filter(
                     Q(seller_id=request.user.seller_id)
                 )
@@ -80,21 +108,17 @@ def aboneEkle(request):
             kullanicibilgi = form.save(commit=False)
             rndid = random.randint(10000000000, 99999999999)
             kullanicibilgi.subscriber_id = rndid
-
-            if request.user.has_perm('abone.add_subscribercreate'):
-                if request.user.seller_id != None:
-                    kullanicibilgi.seller_id = request.user.seller_id
-                else:
-                    kullanicibilgi.seller_id = '0'
-
-
+            kullanicibilgi.seller_id = request.user.seller_id
+            kullanicibilgi.status = 'onay_bekliyor'
             kullanicibilgi.user = request.user
             kullanicibilgi.save()
-
-
+            deneme = str(request.user.seller_id)+" kullanıcısı,"+str(kullanicibilgi.subscriber_id)+" abonesini sisteme ekledi"
+            bildirimkaydet = bildirim(bildirim_icerik=deneme, bildirim_durum='onay_bekliyor')
+            bildirimkaydet.save()
         if form2.is_valid():
             kullaniciadres = form2.save(commit=False)
             kullaniciadres.address_owner_id = kullanicibilgi.subscriber_id
+            kullaniciadres.status = 'onay_bekliyor'
             kullaniciadres.save()
             return redirect('/abone')
 

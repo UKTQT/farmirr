@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{% static 'css/stok.css' %}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     </head>
     <body>
         {% include 'crm/menu.html' %}
@@ -16,21 +17,103 @@
                 </div>
                 <div class="kullaniciisim">Hoşgeldin {{request.user.get_username}}</div>
             </header>
-            <div class="sellstockdatamain">
-                <div class="sellstockdataform">
-                    <div class="title1">
-                        <h1>Satış</h1>
-                        <hr>
-                    </div>
 
-                   <form action="{% url 'stoksatis' %}" method="POST">{% csrf_token %}
-                        <p><label>Satıcı ID:</label><input name="cihazsellerid" type="text"></p><br><br><br>
+            <div class="addformsroutermain">
+                {% if request.user.seller_id == None %}
+                    <button class="addformsrouterbutton" onclick="location.href='{% url 'toplusatis' %}'">
+                        <div class="addformsrouterbuttontext">Toplu Satış</div>
+                    </button>
+                {% endif %}
+                <button class="addformsrouterbutton" onclick="location.href='{% url 'paketsatis' %}'">
+                    <div class="addformsrouterbuttontext">Paket Satış</div>
+                </button>
+            </div>
+
+            <form action="{% url 'stoksatis' %}" method="POST">{% csrf_token %}
+                <div class="sellstockdatamain">
+                    <div class="sellstockteklidataform">
+                        <div class="title1">
+                            {% if request.user.seller_id != None %}
+                                <h1>Aboneye Tekil Cihaz Satışı</h1>
+                            {% elif request.user.seller_id == None %}
+                                <h1>Tekil Cihaz Satışı</h1>
+                            {% endif %}
+
+                            <hr>
+                        </div>
+
+                        <span>Tipi:</span>
+                        <select id="tekilcihazdevice_type" name="tekilcihazdevice_type" value="{{request.POST.tekilcihazdevice_type}}">
+                            <option value="">------</option>
+                            <option value="ws">Hava Sensörü</option>
+                            <option value="ss">Toprak Sensörü</option>
+                            <option value="ps">Basınç Sensörü</option>
+                            <option value="gsm">Sim Kart</option>
+                            <option value="wc">Kuyu merkezi</option>
+                        </select>
+
+                        <span id="markaenabledspan" style="display:none">Marka:</span>
+                        <select id="tekilcihazgsm_brand" style="display:none" name="tekilcihazgsm_brand" value="{{request.POST.tekilcihazgsm_brand}}">
+                            <option value="">------</option>
+                            <option value="turkcell">Turkcell</option>
+                            <option value="vodafone">Vodafone</option>
+                            <option value="turktelekom">Türk Telekom</option>
+                        </select>
+                        <script>
+                                    $(document).ready(function(){
+                                        $('#tekilcihazdevice_type').change(function () {
+                                            var job =  $('#tekilcihazdevice_type').val();
+                                            if(job=='gsm'){
+                                                $("#markaenabledspan").show();
+                                                $("#tekilcihazgsm_brand").show();
+                                            }
+                                            if(job=='ws'){
+                                                $("#markaenabledspan").hide();
+                                                $("#tekilcihazgsm_brand").hide();
+                                            }
+                                            if(job=='ss'){
+                                                $("#markaenabledspan").hide();
+                                                $("#tekilcihazgsm_brand").hide();
+                                            }
+                                            if(job=='ps'){
+                                                $("#markaenabledspan").hide();
+                                                $("#tekilcihazgsm_brand").hide();
+                                            }
+                                            if(job=='wc'){
+                                                $("#markaenabledspan").hide();
+                                                $("#tekilcihazgsm_brand").hide();
+                                            }
+                                        })
+                                    })
+                        </script>
+                        <button name="teklicihazarabuton">Ara</button>
+                        <button name="teklicihazaratümübuton">Tümü</button>
+                        {% if request.user.seller_id != None %}
+
+                            <label>Abone ID: </label>
+                            <select name="cihazsubsid" value="{{request.POST.subscriber_id}}">
+                                <option value="">------------</option>
+                                {% for article in form2 %}
+                                    <option value="{{article.subscriber_id}}">{{article.subscriber_id}}</option>
+                                {% endfor %}
+                            </select>
+                        {% endif %}
+
+                        {% if request.user.seller_id == None %}
+                            <label>Bayi ID: </label>
+                            <input class="sellstockfindseller" name="cihazsellerid" type="text">
+                        {% endif %}
+
+                        <br>
+                        <br>
+                        <br>
                         <table class="table">
                             <thead>
                                 <tr>
-                                  <th scope="col">Cihaz ID</th>
-                                  <th scope="col">Cihaz Tipi</th>
+                                    <th scope="col">Cihaz ID</th>
+                                    <th scope="col">Cihaz Tipi</th>
                                     <th scope="col">Marka</th>
+                                    <th scope="col">Fiyat</th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
@@ -38,16 +121,37 @@
                                 {% for article in form %}
                                     <tr>
                                         <th scope="row">{{article.device_id}}</th>
-                                        <td>{{article.device_type}}</td>
-                                        <td>{{article.gsm_brand}}</td>
-                                        <td><button onclick="location.href='{% url 'stoksatis' %}'" style="border:#417D00; background: #c0d725;" name="devicesell" type="submit" value="{{article.device_id}}" class="sellstockdatabutton btn btn-dark">Cihazı Sat</button></td>
+                                        <td>
+                                            {% if article.device_type == 'ws' %}
+                                                Hava Sensörü
+                                            {% elif article.device_type == 'ss' %}
+                                                Toprak Sensörü
+                                            {% elif article.device_type == 'ps' %}
+                                                Basınç Sensörü
+                                            {% elif article.device_type == 'gsm' %}
+                                                Sim Kart
+                                            {% elif article.device_type == 'wc' %}
+                                                Kuyu Merkezi
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {% if article.gsm_brand == None %}
+                                                Yok
+                                            {% else %}
+                                                {{article.gsm_brand}}
+                                            {% endif %}
+                                        </td>
+                                        <td>500 TL</td>
+                                        <td>
+                                            <button onclick="location.href='{% url 'stoksatis' %}'" style="border:#417D00; background: #c0d725;" name="tekilcihazsatisbuton" type="submit" value="{{article.device_id}}" class="sellstockdatabutton btn btn-dark">Satış Yap</button>
+                                        </td>
                                     </tr>
                                 {% endfor %}
                             </tbody>
                         </table>
-                    </form>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     </body>
 </html>

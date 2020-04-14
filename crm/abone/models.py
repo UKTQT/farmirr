@@ -10,8 +10,10 @@ class SubscriberCreate(models.Model): #abone oluştur
     email_address = models.EmailField("E-Posta:",max_length=40, unique=True)
     first_name = models.CharField("Ad:",max_length=15, null=False)
     last_name = models.CharField("Soyad:",max_length=20, null=False)
+    status = models.CharField("Durum:", max_length=30, null=True)
     date_of_registration = models.DateTimeField(auto_now_add=True)
     date_of_update = models.DateTimeField(auto_now=True)
+
 
 TURKEY_CITIES = [
         ('1', 'ADANA'),
@@ -103,6 +105,7 @@ class SubscriberAddressCreate(models.Model): #abone adres oluştur
     district = models.CharField(verbose_name="Mahalle / Semt:",max_length=30)
     village = models.CharField(verbose_name="Köy / Kasaba:",max_length=30)
     address = models.TextField(verbose_name="Tam Adres:",max_length=128)
+    status = models.CharField("Durum:", max_length=30, null=True)
     date_of_registration = models.DateTimeField(auto_now_add=True)
     date_of_update = models.DateTimeField(auto_now=True)
 

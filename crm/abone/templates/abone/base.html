@@ -17,11 +17,15 @@
                 </div>
                  <div class="kullaniciisim">Hoşgeldin {{request.user.get_username}}</div>
             </header>
-            <div class="addformsroutermain">
-                 <button class="addformsrouterbutton" onclick="location.href='{% url 'aboneekle' %}'">
-                     <div class="addformsrouterbuttontext">Abone Ekle</div>
-                 </button>
-            </div>
+
+            {% if request.user.seller_id != None %}
+                <div class="addformsroutermain">
+                     <button class="addformsrouterbutton" onclick="location.href='{% url 'aboneekle' %}'">
+                         <div class="addformsrouterbuttontext">Abone Ekle</div>
+                     </button>
+                </div>
+            {% endif %}
+
             <div class="subscriberfiltersearchmain">
                 <div class="title1">
                     <h1>Abone Ara</h1>
@@ -62,7 +66,7 @@
                                     <td>{{article.public_ID}}</td>
                                     <td>{{article.phone_number}}</td>
                                     <td>{{article.email_address}}</td>
-                                    <td></td>
+                                    <td>{% if article.status == 'onay_bekliyor' %}Onay Bekliyor{% elif article.status == 'pasif' %}Pasif {% endif %}</td>
                                     <td><form action="{% url 'abonedetay' %}" method="POST">{% csrf_token %}<button onclick="location.href='{% url 'abonedetay' %}'" name="sbid" type="submit" value="{{article.subscriber_id}}" class="stocksearchbutton btn btn-dark">Detay</button></form></td>
                                 </tr>
                             {% endfor %}

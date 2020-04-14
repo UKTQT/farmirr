@@ -22,31 +22,32 @@
                     <h1>Bayi Detay / Güncelle / Sil</h1>
                     <hr>
                 </div>
-                <form>
+                <form action="{% url 'bayidetay' %}" method="POST">{% csrf_token %}
                         <div class="listsubsform">
                             {% for article in form %}
-                                <p><label>Bayi ID: </label><input value="{{article.seller_id}}"></p>
-                                <p><label>Bayi Adı: </label><input value="{{article.seller_name}}"></p>
-                                <p><label>Vergi No: </label><input value="{{article.tax_number}}"></p>
-                                <p><label>Yetki: </label><input value="{{article.authority}}"></p>
-                                <p><label>Telefon No: </label><input value="{{article.phone_number}}"></p>
-                                <p><label>E Mail Adres: </label><input value="{{article.email_address}}"></p>
-                                <p><label>Şifre: </label><input value="{{article.password}}"></p>
+                                <p><label>Bayi ID: </label><input disabled value="{{article.seller_id}}"></p>
+                                <p><label>Bayi Adı: </label><input name="seller_name" value="{{article.seller_name}}"></p>
+                                <p><label>Vergi No: </label><input name="tax_number" value="{{article.tax_number}}"></p>
+                                <p><label>Yetki: </label><input name="authority" value="{{article.authority}}"></p>
+                                <p><label>Telefon No: </label><input name="phone_number" value="{{article.phone_number}}"></p>
+                                <p><label>E Mail Adres: </label><input name="email_address" value="{{article.email_address}}"></p>
+                                <p><label>Şifre: </label><input name="password" value="{{article.password}}"></p>
+                                <p><label>Durum: </label><input disabled value="{{article.status}}"></p>
                             {% endfor %}
                         </div>
+                    {% for article2 in form2 %}
                         <div class="listsubsform">
-                            {% for article2 in form2 %}
-                                <p><label>Ülke: </label><input value="{{article2.country}}"></p>
-                                <p><label>Şehir: </label><input value="{{article2.city}}"></p>
-                                <p><label>Mahalle / Semt: </label><input value="{{article2.district}}"></p>
-                                <p><label>Köy / Kasaba: </label><input value="{{article2.village}}"></p>
-                                <p><label>Tam Adres: </label><textarea>{{article2.address}}</textarea></p>
-                            {% endfor %}
+                                <p><label>Ülke: </label><input name="country" value="{{article2.country}}"></p>
+                                <p><label>Şehir: </label><input name="city" value="{{article2.city}}"></p>
+                                <p><label>Mahalle / Semt: </label><input name="district" value="{{article2.district}}"></p>
+                                <p><label>Köy / Kasaba: </label><input name="village" value="{{article2.village}}"></p>
+                                <p><label>Tam Adres: </label><textarea name="address">{{article2.address}}</textarea></p>
                         </div>
-                    <div class="listsubsbuttondiv">
-                        <button type="submit" style="border-color:#c0d725; color: #363947; background-color: #c0d725;" class="listsubsbutton btn btn-success">Güncelle</button>
-                        <button type="submit"  class="listsubsbutton btn btn-danger">Bayiyi Sil</button>
-                    </div>
+                        <div class="listsubsbuttondiv">
+                            <button name="bayidetayguncelle" value="{{article2.address_owner_id}}" type="submit" style="border-color:#c0d725; color: #363947; background-color: #c0d725;" class="listsubsbutton btn btn-success">Güncelle</button>
+                            <button name="bayidetaypasif" value="{{article2.address_owner_id}}" type="submit"  class="listsubsbutton btn btn-danger">Bayiyi Pasifleştir</button>
+                        </div>
+                    {% endfor %}
                 </form>
             </div>
         </div>

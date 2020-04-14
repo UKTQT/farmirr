@@ -61,7 +61,7 @@
                                     <th>{{article.phone_number}}</th>
                                     <th>{{article.authority}}</th>
                                     <th>{{article.email_address}}</th>
-                                    <td></td>
+                                    <td>{{article.status}}</td>
                                     <td><form action="{% url 'bayidetay' %}" method="POST">{% csrf_token %}<button onclick="location.href='{% url 'bayidetay' %}'" name="sellerid" type="submit" value="{{article.seller_id}}" class="stocksearchbutton btn btn-dark">Detay</button></form></td>
                                 </tr>
                             {% endfor %}

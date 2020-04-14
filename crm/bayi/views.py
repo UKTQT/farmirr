@@ -9,6 +9,7 @@ from django.db.models import Q
 from django.contrib.auth.models import User
 from  account.models import Profile
 
+
 # Create your views here.
 def index(request):
     if 'bayitümü' in request.POST:
@@ -29,6 +30,40 @@ def index(request):
 
 
 def bayiDetay(request):
+    if 'bayidetaypasif' in request.POST:
+        bayidetaypasif = request.POST.get('bayidetaypasif')
+        seller.objects.filter(seller_id=bayidetaypasif).update(status ='pasif')
+        selleraddress.objects.filter(address_owner_id=bayidetaypasif).update(status='pasif')
+        return redirect('/bayi')
+
+
+
+    if 'bayidetayguncelle' in request.POST:
+        bayiid = request.POST.get('bayidetayguncelle')
+        seller_name = request.POST.get('seller_name')
+        tax_number = request.POST.get('tax_number')
+        authority = request.POST.get('authority')
+        phone_number = request.POST.get('phone_number')
+        email_address = request.POST.get('email_address')
+        password = request.POST.get('password')
+        country = request.POST.get('country')
+        city = request.POST.get('city')
+        district = request.POST.get('district')
+        village = request.POST.get('village')
+        address = request.POST.get('address')
+
+        seller.objects.filter(seller_id=bayiid).update(seller_name=seller_name, tax_number=tax_number,
+                                                                      authority=authority, phone_number=phone_number,
+                                                                      email_address=email_address,password=password)
+        selleraddress.objects.filter(address_owner_id=bayiid).update(country=country, city=city,
+                                                                                district=district, village=village,
+                                                                                address=address)
+        return redirect('/abone')
+
+
+
+
+
     if 'sellerid' in request.POST:
         sellerid = request.POST.get('sellerid')
         print(sellerid)
@@ -36,7 +71,10 @@ def bayiDetay(request):
         print(saticidetay)
         saticiadresdetay = selleraddress.objects.filter(
             Q(address_owner_id=sellerid))
-        return render(request, "bayi/bayidetay.html", {"form": saticidetay, "form2": saticiadresdetay})
+    else:
+        saticidetay = ""
+        saticiadresdetay = ""
+    return render(request, "bayi/bayidetay.html", {"form": saticidetay, "form2": saticiadresdetay})
 
 
 def bayiEkle(request):
@@ -50,6 +88,7 @@ def bayiEkle(request):
             print(rndid)
             sellerbilgi.seller_id = rndid
             sellerbilgi.user = request.user
+            sellerbilgi.status = 'aktif'
             sellerbilgi.save()
             selleruser = Profile.objects.create_user(seller_id=sellerbilgi.seller_id,username=sellerbilgi.seller_name,email=sellerbilgi.email_address,password=sellerbilgi.password)
             selleruser.is_superuser = False
@@ -60,6 +99,7 @@ def bayiEkle(request):
         if form2.is_valid():
             selleradres = form2.save(commit=False)
             selleradres.address_owner_id = sellerbilgi.seller_id
+            selleradres.status = 'aktif'
             selleradres.save()
             form2 = BayiAdres()
             return redirect('/bayi')

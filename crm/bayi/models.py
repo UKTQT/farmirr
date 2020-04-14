@@ -7,6 +7,7 @@ class seller(models.Model):
     seller_name = models.CharField(max_length=50, verbose_name='Bayi Adı:')
     tax_number = models.CharField(max_length=30, verbose_name='Vergi Numarası:')
     date_of_registration = models.DateTimeField(auto_now_add=True)
+    status = models.CharField("Durum:", max_length=30, null=True)
     SELLER_AUTHORITY = [
             ('main_dealer', 'Ana Bayi'),
             ('normal_dealer', 'Normal Bayi'),
@@ -106,5 +107,6 @@ class selleraddress(models.Model):  # abone adres oluştur
     district = models.CharField(verbose_name="Mahalle / Semt:", max_length=30)
     village = models.CharField(verbose_name="Köy / Kasaba:", max_length=30)
     address = models.TextField(verbose_name="Tam Adres:", max_length=128)
+    status = models.CharField("Durum:", max_length=30, null=True)
     date_of_registration = models.DateTimeField(auto_now_add=True)
     date_of_update = models.DateTimeField(auto_now=True)
