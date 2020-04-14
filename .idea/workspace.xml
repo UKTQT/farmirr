@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d64c6d32-8012-4d49-9aaa-9779287706bc" name="Default Changelist" comment="farmirr Son">
+    <list default="true" id="d64c6d32-8012-4d49-9aaa-9779287706bc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/abone/deneme.py" beforeDir="false" afterPath="$PROJECT_DIR$/crm/abone/deneme.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/stok/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/crm/stok/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crm/stok/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/crm/stok/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -283,7 +281,7 @@
       <workItem from="1586696198604" duration="15219000" />
       <workItem from="1586730097107" duration="19784000" />
       <workItem from="1586775715599" duration="35477000" />
-      <workItem from="1586855874773" duration="15165000" />
+      <workItem from="1586855874773" duration="16063000" />
     </task>
     <task id="LOCAL-00001" summary="ÇALIŞIYOOOOOOOOOOOOOOOOOR SONUNDA">
       <created>1585232034859</created>
@@ -341,7 +339,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586838505127</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="farmirr Son">
+      <created>1586882289451</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1586882289451</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -394,13 +399,13 @@
       <screen x="1366" y="0" width="1024" height="768" />
     </state>
     <state x="1710" y="274" width="326" height="217" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/0.27.1366.741/1366.0.1024.768@1366.0.1024.768" timestamp="1585926871807" />
-    <state x="1520" y="0" width="1366" height="715" key="CommitChangelistDialog2" timestamp="1586838504594">
-      <screen x="1366" y="0" width="1024" height="768" />
+    <state x="0" y="27" width="1366" height="715" key="CommitChangelistDialog2" timestamp="1586882288768">
+      <screen x="0" y="27" width="2390" height="741" />
     </state>
     <state x="97" y="27" width="1262" height="741" key="CommitChangelistDialog2/0.27.1366.741/1366.0.1024.768@0.27.1366.741" timestamp="1585998129611" />
     <state x="1520" y="0" width="860" height="768" key="CommitChangelistDialog2/0.27.1366.741/1366.0.1024.768@1366.0.1024.768" timestamp="1586838504594" />
     <state x="248" y="27" width="860" height="741" key="CommitChangelistDialog2/0.27.1366.741/1366.0.1440.900@0.27.1366.741" timestamp="1583087207675" />
-    <state x="0" y="27" width="1366" height="715" key="CommitChangelistDialog2/0.27.2390.741@0.27.2390.741" timestamp="1586493181770" />
+    <state x="0" y="27" width="1366" height="715" key="CommitChangelistDialog2/0.27.2390.741@0.27.2390.741" timestamp="1586882288768" />
     <state x="1366" y="73" width="1014" height="622" key="DiffContextDialog" timestamp="1585777981409">
       <screen x="1366" y="0" width="1024" height="768" />
     </state>
@@ -471,12 +476,12 @@
       <screen x="1366" y="0" width="1024" height="768" />
     </state>
     <state x="1745" y="300" width="256" height="166" key="VCS.EditChangelistDialog/0.27.1366.741/1366.0.1024.768@1366.0.1024.768" timestamp="1586363272861" />
-    <state x="1539" y="123" width="1366" height="528" key="Vcs.Push.Dialog.v2" timestamp="1586838513334">
-      <screen x="1366" y="0" width="1024" height="768" />
+    <state x="0" y="146" width="1366" height="528" key="Vcs.Push.Dialog.v2" timestamp="1586882297886">
+      <screen x="0" y="27" width="2390" height="741" />
     </state>
     <state x="231" y="146" key="Vcs.Push.Dialog.v2/0.27.1366.741/1366.0.1024.768@0.27.1366.741" timestamp="1585998143039" />
     <state x="1539" y="123" width="800" height="528" key="Vcs.Push.Dialog.v2/0.27.1366.741/1366.0.1024.768@1366.0.1024.768" timestamp="1586838513334" />
-    <state x="0" y="146" width="1366" height="528" key="Vcs.Push.Dialog.v2/0.27.2390.741@0.27.2390.741" timestamp="1586493194074" />
+    <state x="0" y="146" width="1366" height="528" key="Vcs.Push.Dialog.v2/0.27.2390.741@0.27.2390.741" timestamp="1586882297886" />
     <state x="1767" y="280" width="367" height="230" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1586545098763">
       <screen x="1366" y="0" width="1024" height="768" />
     </state>

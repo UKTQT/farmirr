@@ -142,12 +142,12 @@ def cihazekle(request):
             subscriberId = device_type_code + subsCreateDay  # cihaz tipi + BUGÜNÜN TARİHİ
 
             cur = conn.cursor()
-            cur.execute("""SELECT device_id FROM stok_inventory_device WHERE device_type = device_typee""")
+            cur.execute("""SELECT device_id FROM stok_inventory_device """)
             rows = cur.fetchall()
             print(rows)
 
             if rows == []:  # gelen kayıt boşsa
-                lastId = subscriberId + "001"
+                lastId = subscriberId + "000"
                 print("qeq  " + lastId)
             else:
                 print("wwwwwwwwwww")
