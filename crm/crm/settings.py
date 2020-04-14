@@ -45,6 +45,10 @@ INSTALLED_APPS = [
     'teknikservis.apps.TeknikservisConfig', #Teknik servis
     'cihaz.apps.CihazConfig', #Cihaz
     'bildirim.apps.BildirimConfig', #Bildirim
+    'sms.apps.SmsConfig', #Sms
+    'istatistik.apps.IstatistikConfig', #İstatistik
+    'muhasebe.apps.MuhasebeConfig', #Muhasebe
+
 
 ]
 

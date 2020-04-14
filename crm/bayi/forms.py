@@ -7,7 +7,7 @@ class BayiEkle(forms.ModelForm):
       class Meta:
             model = seller
             fields = [
-                  'phone_number','seller_name',
+                  'phone_number','seller_name','seller_kadi',
                   'tax_number','authority',
                   'email_address','password',
             ]

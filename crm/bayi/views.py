@@ -8,6 +8,7 @@ import sys
 from django.db.models import Q
 from django.contrib.auth.models import User
 from  account.models import Profile
+from django.contrib.auth.models import Permission
 
 
 # Create your views here.
@@ -41,6 +42,7 @@ def bayiDetay(request):
     if 'bayidetayguncelle' in request.POST:
         bayiid = request.POST.get('bayidetayguncelle')
         seller_name = request.POST.get('seller_name')
+        seller_kadi = request.POST.get('seller_kadi')
         tax_number = request.POST.get('tax_number')
         authority = request.POST.get('authority')
         phone_number = request.POST.get('phone_number')
@@ -52,13 +54,13 @@ def bayiDetay(request):
         village = request.POST.get('village')
         address = request.POST.get('address')
 
-        seller.objects.filter(seller_id=bayiid).update(seller_name=seller_name, tax_number=tax_number,
+        seller.objects.filter(seller_id=bayiid).update(seller_kadi=seller_kadi,seller_name=seller_name, tax_number=tax_number,
                                                                       authority=authority, phone_number=phone_number,
                                                                       email_address=email_address,password=password)
         selleraddress.objects.filter(address_owner_id=bayiid).update(country=country, city=city,
                                                                                 district=district, village=village,
                                                                                 address=address)
-        return redirect('/abone')
+        return redirect('/bayi')
 
 
 
@@ -90,9 +92,15 @@ def bayiEkle(request):
             sellerbilgi.user = request.user
             sellerbilgi.status = 'aktif'
             sellerbilgi.save()
-            selleruser = Profile.objects.create_user(seller_id=sellerbilgi.seller_id,username=sellerbilgi.seller_name,email=sellerbilgi.email_address,password=sellerbilgi.password)
+
+            selleruser = Profile.objects.create_user(seller_id=sellerbilgi.seller_id,username=sellerbilgi.seller_kadi,email=sellerbilgi.email_address,password=sellerbilgi.password)
             selleruser.is_superuser = False
             selleruser.is_staff = False
+            aboneeklemeizni = Permission.objects.get(codename='add_subscribercreate')
+            stokeklemeizni = Permission.objects.get(codename='add_inventory_device')
+            teknikservisizni = Permission.objects.get(codename='add_inventory_device')
+            selleruser.user_permissions.add(aboneeklemeizni)
+            selleruser.user_permissions.add(stokeklemeizni)
             selleruser.save()
             form = BayiEkle()
 

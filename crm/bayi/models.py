@@ -5,6 +5,7 @@ class seller(models.Model):
     seller_id = models.CharField(verbose_name='Id', primary_key=True, max_length=11)
     phone_number = models.CharField(max_length=11,verbose_name='Telefon No:')
     seller_name = models.CharField(max_length=50, verbose_name='Bayi Adı:')
+    seller_kadi = models.CharField(max_length=50, verbose_name='Kullanıcı Adı:')
     tax_number = models.CharField(max_length=30, verbose_name='Vergi Numarası:')
     date_of_registration = models.DateTimeField(auto_now_add=True)
     status = models.CharField("Durum:", max_length=30, null=True)

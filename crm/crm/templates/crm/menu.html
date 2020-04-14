@@ -13,16 +13,16 @@
             <a href="/bayi"><li>Bayilik Yönetimi</li></a>
         {% endif %}
 
-        <a href=""><li>Teknik Servis</li></a>
+        <a href="/teknikservis"><li>Teknik Servis</li></a>
 
         {% if perms.stok.add_inventory_device %}
             <a href="/stok"><li>Stok Yönetimi</li></a>
         {% endif %}
 
         {% if perms.bayi.add_seller %}
-        <a href=""><li>SMS Yönetimi</li></a>
-        <a href=""><li>İstatistikler</li></a>
-        <a href=""><li>Muhasebe İşlemleri</li></a>
+        <a href="/sms"><li>SMS Yönetimi</li></a>
+        <a href="/istatistik"><li>İstatistikler</li></a>
+        <a href="/muhasebe"><li>Muhasebe İşlemleri</li></a>
         <a href="/bildirim"><li>Bildirim Yönetimi</li></a>
         {% endif %}
     </ul>

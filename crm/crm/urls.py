@@ -24,6 +24,10 @@ urlpatterns = [
     path('bayi/', include('bayi.urls')),
     path('cihaz/', include('cihaz.urls')),
     path('bildirim/', include('bildirim.urls')),
+    path('teknikservis/', include('teknikservis.urls')),
+    path('sms/', include('sms.urls')),
+    path('istatistik/', include('istatistik.urls')),
+    path('muhasebe/', include('muhasebe.urls')),
 
 
 
