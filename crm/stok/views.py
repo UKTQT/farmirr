@@ -4,6 +4,9 @@ from django.db.models import F
 from .models import inventory_device,paketkural
 from .forms import CihazAra
 from .forms import CihazEkle
+import psycopg2
+import random
+import time
 from abone.models import SubscriberCreate
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
@@ -112,11 +115,81 @@ def cihazekle(request):
     #return render(request, "stok/cihazekle.html")
     if 'adddevice' in request.POST:
         form = CihazEkle(request.POST)
+        device_typee = request.POST.get('device_type')
         if form.is_valid():
             cihaz_ekle = form.save(commit=False)
             cihaz_ekle.author = request.user
+            rndid = random.randint(1000, 9999)
+
+            try:
+                conn = psycopg2.connect("dbname='farmirr'user='postgres'host='127.0.0.1'password='ufuk123456'")
+                print("Bağlanıldı")
+            except:
+                print("Bağlantı Hatası")
+
+            subsCreateDay = time.strftime("%y" + "%m" + "%d")  # BUGÜNÜN TARİHİ
+            if device_typee == 'ws':
+                device_type_code = '10'
+            if device_typee == 'ss':
+                device_type_code = '20'
+            if device_typee == 'ps':
+                device_type_code = '30'
+            if device_typee == 'gsm':
+                device_type_code = '40'
+            if device_typee == 'wc':
+                device_type_code = '50'
+
+            subscriberId = device_type_code + subsCreateDay  # cihaz tipi + BUGÜNÜN TARİHİ
+
+            cur = conn.cursor()
+            cur.execute("""SELECT device_id FROM stok_inventory_device WHERE device_type = device_typee""")
+            rows = cur.fetchall()
+            print(rows)
+
+            if rows == []:  # gelen kayıt boşsa
+                lastId = subscriberId + "001"
+                print("qeq  " + lastId)
+            else:
+                print("wwwwwwwwwww")
+                lastId = rows[-1]
+                lastId = lastId[0]
+                print(lastId)
+                cur.close()
+
+            print("Son ID  " + lastId)
+            lastIdNumber = lastId[8:]  # 8den sonrasını alıyor
+            print(lastIdNumber)
+
+            if not lastIdNumber:  # çekilen id boşsa
+                subscriberId = subscriberId + "001"
+                cur = conn.cursor()
+                cur.execute("UPDATE stok_inventory_device SET device_id = %s WHERE device_id = %s",
+                            (subscriberId, lastId))
+                conn.commit()
+
+            lastIdDate = lastId[2:8]
+            if lastIdDate != subsCreateDay:  # Yeni güne geçilmiş ise
+                subscriberId = subscriberId + "001"
+
+            else:  # aynı gündeysen
+                newid = str()
+                if (int(lastIdNumber) + 1) < 10:
+                    newid = str(subscriberId[:8] + ("00" + (str(int(lastIdNumber) + 1))))
+                    print(newid)
+
+                elif (int(lastIdNumber) + 1) >= 10:
+                    print("bakbura")
+                    newid = str(subscriberId + ("0" + (str(int(lastIdNumber) + 1))))
+                    print(newid)
+
+                elif (int(lastIdNumber) + 1) > 99:
+                    newid = str(subscriberId + str(int(lastIdNumber) + 1))
+                    print(newid)
+
+            cihaz_ekle.device_id = newid
             cihaz_ekle.save()
             form = CihazEkle()
+
             return redirect('/stok')
     else:
         form = CihazEkle()

@@ -10,44 +10,46 @@ def create():
     except:
         print("Bağlantı Hatası")
 
-    subsCreateDay = time.strftime("%y" + "%m" + "%d")
-    subscriberId = "SB" + subsCreateDay
+    subsCreateDay = time.strftime("%y" + "%m" + "%d") # BUGÜNÜN TARİHİ
+    subscriberId = "10" + subsCreateDay # 10 + BUGÜNÜN TARİHİ
     cur = conn.cursor()
     cur.execute("""SELECT subscriber_id FROM abone_subscribercreate""")
     rows = cur.fetchall()
     lastId = rows[-1]
-
     cur.close()
     lastId = lastId[0]
-    lastIdNumber = lastId[8:]
+    print("Son ID  "+lastId)
+    lastIdNumber = lastId[8:] #8den sonrasını alıyor
 
-    if not lastIdNumber:
+
+    if not lastIdNumber: #çekilen id boşsa
         subscriberId = subscriberId + "001"
         cur = conn.cursor()
-        sql = """INSERT INTO abone_subscribercreate(subscriber_id) VALUES(%s);"""
-        cur.execute(sql, [subscriberId])
+        cur.execute("UPDATE abone_subscribercreate SET subscriber_id = %s WHERE subscriber_id = %s",(subscriberId, lastId))
         conn.commit()
 
-    lastIdDate = lastId[2:8]
-    if lastIdDate != subsCreateDay:
-        subscriberId = subscriberId + "001"
-    else:
-        newid = str()
 
+    lastIdDate = lastId[2:8]
+    if lastIdDate != subsCreateDay: # Yeni güne geçilmiş ise
+        subscriberId = subscriberId + "001"
+
+    else: #aynı gündeysen
+        newid = str()
         if (int(lastIdNumber) + 1) < 10:
-            newid = str(subscriberId + ("00" + (str(int(lastIdNumber) + 1))))
+            newid = str(subscriberId[:8] + ("00" + (str(int(lastIdNumber) + 1))))
             print(newid)
+
         elif (int(lastIdNumber) + 1) >= 10:
+            print("bakbura")
             newid = str(subscriberId + ("0" + (str(int(lastIdNumber) + 1))))
             print(newid)
+
         elif (int(lastIdNumber) + 1) > 99:
             newid = str(subscriberId + str(int(lastIdNumber) + 1))
             print(newid)
         return newid
 
         cur = conn.cursor()
-        sql = """INSERT INTO subs(id) VALUES(%s);"""
-        cur.execute(sql, [newid])
+        cur.execute("UPDATE abone_subscribercreate SET subscriber_id = %s WHERE subscriber_id = %s",(newid, lastId))
         conn.commit()
-
 create()

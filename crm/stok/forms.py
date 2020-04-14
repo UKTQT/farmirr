@@ -6,7 +6,7 @@ class CihazEkle(forms.ModelForm):
     class Meta:
         model = inventory_device
         fields = [
-            'device_id', 'device_type',
+             'device_type',
             'gsm_brand',
         ]
 
