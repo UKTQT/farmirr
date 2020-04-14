@@ -1,15 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d64c6d32-8012-4d49-9aaa-9779287706bc" name="Default Changelist" comment="">
+    <list default="true" id="d64c6d32-8012-4d49-9aaa-9779287706bc" name="Default Changelist" comment="farmirr Son">
+      <change afterPath="$PROJECT_DIR$/crm/abone/migrations/0014_subscribercreate_seller_id.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/abone/migrations/0015_auto_20200411_0827.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/account/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/account/static/image/background.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/bayi/migrations/0003_auto_20200411_0914.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/bayi/migrations/0004_seller_seller_kadi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/bayi/migrations/0005_auto_20200414_1848.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/bildirim/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/bildirim/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/bildirim/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/bildirim/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/bildirim/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/bildirim/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/bildirim/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/bildirim/static/css/bildirim.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/bildirim/templates/bildirim/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/bildirim/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/bildirim/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/bildirim/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/cihaz/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/cihaz/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/cihaz/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/cihaz/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/cihaz/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/cihaz/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/cihaz/static/css/cihaz.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/cihaz/templates/cihaz/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/cihaz/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/cihaz/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/cihaz/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/istatistik/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/istatistik/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/istatistik/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/istatistik/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/istatistik/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/istatistik/templates/istatistik/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/istatistik/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/istatistik/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/istatistik/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/izinler" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/muhasebe/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/muhasebe/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/muhasebe/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/muhasebe/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/muhasebe/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/muhasebe/templates/muhasebe/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/muhasebe/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/muhasebe/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/muhasebe/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/sms/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/sms/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/sms/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/sms/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/sms/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/sms/templates/sms/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/sms/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/sms/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/sms/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/stok/migrations/0006_auto_20200410_0129.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/stok/migrations/0007_inventory_device_subscriber_id.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/stok/migrations/0008_inventory_device_status.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/stok/migrations/0009_auto_20200411_0938.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/stok/migrations/0010_paket.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/stok/migrations/0011_auto_20200411_1607.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/stok/migrations/0012_remove_sellpaket_lisans.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/stok/migrations/0013_auto_20200411_1650.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/stok/migrations/0014_auto_20200411_1721.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/stok/templates/stok/paketekle.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/stok/templates/stok/paketsatis.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/stok/templates/stok/stokcikis.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/stok/templates/stok/toplusatis.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/teknikservis/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/teknikservis/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/teknikservis/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/teknikservis/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/teknikservis/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/teknikservis/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/teknikservis/static/css/teknikservis.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/teknikservis/templates/teknikservis/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/teknikservis/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/teknikservis/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/teknikservis/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/bayi/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/crm/bayi/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/bayi/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/crm/bayi/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/bayi/templates/bayi/bayidetay.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/bayi/templates/bayi/bayidetay.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/bayi/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/crm/bayi/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/crm/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/crm/crm/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/crm/templates/crm/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/crm/templates/crm/menu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/crm/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/crm/crm/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -287,7 +362,7 @@
       <workItem from="1586696198604" duration="15219000" />
       <workItem from="1586730097107" duration="19784000" />
       <workItem from="1586775715599" duration="35477000" />
-      <workItem from="1586855874773" duration="22128000" />
+      <workItem from="1586855874773" duration="23494000" />
     </task>
     <task id="LOCAL-00001" summary="ÇALIŞIYOOOOOOOOOOOOOOOOOR SONUNDA">
       <created>1585232034859</created>
@@ -359,7 +434,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586883179660</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="farmirr Son">
+      <created>1586890389783</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1586890389783</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -412,13 +494,13 @@
       <screen x="1366" y="0" width="1024" height="768" />
     </state>
     <state x="1710" y="274" width="326" height="217" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/0.27.1366.741/1366.0.1024.768@1366.0.1024.768" timestamp="1585926871807" />
-    <state x="0" y="27" width="1366" height="715" key="CommitChangelistDialog2" timestamp="1586883179559">
+    <state x="0" y="27" width="1366" height="715" key="CommitChangelistDialog2" timestamp="1586891549137">
       <screen x="0" y="27" width="2390" height="741" />
     </state>
     <state x="97" y="27" width="1262" height="741" key="CommitChangelistDialog2/0.27.1366.741/1366.0.1024.768@0.27.1366.741" timestamp="1585998129611" />
     <state x="1520" y="0" width="860" height="768" key="CommitChangelistDialog2/0.27.1366.741/1366.0.1024.768@1366.0.1024.768" timestamp="1586838504594" />
     <state x="248" y="27" width="860" height="741" key="CommitChangelistDialog2/0.27.1366.741/1366.0.1440.900@0.27.1366.741" timestamp="1583087207675" />
-    <state x="0" y="27" width="1366" height="715" key="CommitChangelistDialog2/0.27.2390.741@0.27.2390.741" timestamp="1586883179559" />
+    <state x="0" y="27" width="1366" height="715" key="CommitChangelistDialog2/0.27.2390.741@0.27.2390.741" timestamp="1586891549137" />
     <state x="1366" y="73" width="1014" height="622" key="DiffContextDialog" timestamp="1585777981409">
       <screen x="1366" y="0" width="1024" height="768" />
     </state>
@@ -489,12 +571,12 @@
       <screen x="1366" y="0" width="1024" height="768" />
     </state>
     <state x="1745" y="300" width="256" height="166" key="VCS.EditChangelistDialog/0.27.1366.741/1366.0.1024.768@1366.0.1024.768" timestamp="1586363272861" />
-    <state x="0" y="146" width="1366" height="528" key="Vcs.Push.Dialog.v2" timestamp="1586883186580">
+    <state x="0" y="146" width="1366" height="528" key="Vcs.Push.Dialog.v2" timestamp="1586891472838">
       <screen x="0" y="27" width="2390" height="741" />
     </state>
     <state x="231" y="146" key="Vcs.Push.Dialog.v2/0.27.1366.741/1366.0.1024.768@0.27.1366.741" timestamp="1585998143039" />
     <state x="1539" y="123" width="800" height="528" key="Vcs.Push.Dialog.v2/0.27.1366.741/1366.0.1024.768@1366.0.1024.768" timestamp="1586838513334" />
-    <state x="0" y="146" width="1366" height="528" key="Vcs.Push.Dialog.v2/0.27.2390.741@0.27.2390.741" timestamp="1586883186580" />
+    <state x="0" y="146" width="1366" height="528" key="Vcs.Push.Dialog.v2/0.27.2390.741@0.27.2390.741" timestamp="1586891472838" />
     <state x="1767" y="280" width="367" height="230" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1586545098763">
       <screen x="1366" y="0" width="1024" height="768" />
     </state>

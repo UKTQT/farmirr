@@ -1,0 +1,23 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>farmirr</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/cihaz.css' %}">
+    </head>
+    <body>
+        {% include 'crm/menu.html' %}
+        <div class="maindiv">
+            <header>
+                <div class="kullanicicikis">
+                    <a href="{% url 'logout' %}">Çıkış</a>
+                </div>
+                 <div class="kullaniciisim">Hoşgeldin {{request.user.get_username}}</div>
+            </header>
+
+            <div class="yapimasamasi">Muhasebe Yapım Aşamasında</div>
+        </div>
+    </body>
+</html>

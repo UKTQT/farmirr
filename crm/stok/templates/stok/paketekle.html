@@ -1,0 +1,80 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>farmirr</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/stok.css' %}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    </head>
+    <body>
+        {% include 'crm/menu.html' %}
+
+        <div class="maindiv">
+            <header>
+                <div class="kullanicicikis">
+                    <a href="{% url 'logout' %}">Çıkış</a>
+                </div>
+                 <div class="kullaniciisim">Hoşgeldin {{request.user.get_username}}</div>
+            </header>
+
+            <div class="addstockdatamain">
+                <div class="title1">
+                    <h1>Satış Paketi Oluştur</h1>
+                    <hr>
+                </div>
+
+                <div class="addpackeddataform">
+                    <form method="POST" class="post-form">{% csrf_token %}
+                        <p><label>Paket Adı:</label><input type="text" name="paketad" value="{{request.POST.paketad}}"></p>
+                        <p><label>Toprak Sensörü Sayısı:</label><input type="text" name="topraks" value="{{request.POST.topraks}}"></p>
+                        <p><label>Basınç Sensörü Sayısı:</label><input type="text" name="basinc" value="{{request.POST.basinc}}"></p>
+                        <p><label>Hava Sensörü Sayısı:</label><input type="text" name="havas" value="{{request.POST.havas}}"></p>
+                        <p><label>Kuyu Kont.Sens. Sayısı:</label><input type="text" name="kksens" value="{{request.POST.kksens}}"></p>
+                        <p><label>Sim Kart Sayısı:</label><input type="text" name="sim" value="{{request.POST.sim}}"></p>
+                        <p><label>Yazılım Lisansı Sayısı:</label><input type="text" name="yazlisans" value="{{request.POST.yazlisans}}"></p>
+                        <p>
+                        <button type="submit" name="addpacked" style="float:right; border:#417D00; background: #c0d725;" class="addpackeddatabutton btn-success">Kaydet</button>
+                        <button type="reset" style="float:right;" class="addpackeddatabutton btn-danger">Temizle</button>
+                        </p>
+                    </form>
+                </div>
+
+                <div class="addpackedtable">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                              <th scope="col">Paket Adı</th>
+                              <th scope="col">Toprak</th>
+                                <th scope="col">Basınç</th>
+                                <th scope="col">Hava</th>
+                                <th scope="col">Kuyu K.</th>
+                                <th scope="col">Yazılım Lisans</th>
+                                <th scope="col">SimKart</th>
+                                <th scope="col">Detay</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for article in form %}
+                                <tr>
+                                    <th scope="row">{{article.paket_ad}}</th>
+                                    <td>{{article.topraks}}</td>
+                                    <td>{{article.basıncs}}</td>
+                                    <td>{{article.havas}}</td>
+                                    <td>{{article.kuyukontrol}}</td>
+                                    <td>{{article.yazlisans}}</td>
+                                    <td>{{article.simkart}}</td>
+                                    <td><form action="{% url 'stokdetay' %}" method="POST">{% csrf_token %}<button onclick="location.href='{% url 'stokdetay' %}'" name="stockid" type="submit" value="{{article.device_id}}" class="stocksearchbutton btn btn-dark">Detay</button></form></td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+    </body>
+
+</html>
+
+
+

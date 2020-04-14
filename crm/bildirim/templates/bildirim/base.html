@@ -1,0 +1,57 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>farmirr</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/bildirim.css' %}">
+    </head>
+    <body>
+        {% include 'crm/menu.html' %}
+        <div class="maindiv">
+            <header>
+                <div class="kullanicicikis">
+                    <a href="{% url 'logout' %}">Çıkış</a>
+                </div>
+                 <div class="kullaniciisim">Hoşgeldin {{request.user.get_username}}</div>
+            </header>
+            <div class="bildirim">
+                <div class="title1">
+                    <h1>Bildirim Yönetimi</h1>
+                    <hr>
+                </div>
+            <div class="bildirimtable">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Bildirim ID</th>
+                                <th scope="col">Bildirim Metni</th>
+                                <th scope="col">Bildirim Durum</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for article in form %}
+                                <tr>
+                                    <th scope="row">{{article.bildirim_id}}</th>
+                                    <td>{{article.bildirim_icerik}}</td>
+                                    <td>
+                                        {% if article.bildirim_durum == 'onay_bekliyor' %}
+                                            Onay Bekliyor
+                                        {% elif article.bildirim_durum == 'onaylandi' %}
+                                            Onaylandı
+                                        {% endif %}</td>
+                                    <td>{% if article.bildirim_durum == 'onay_bekliyor' %}
+                                            <form action="{% url 'index' %}" method="POST">{% csrf_token %}<button onclick="location.href='{% url 'index' %}'" name="bildirimonayla" type="submit" value="{{article.bildirim_id}}" class="stocksearchbutton btn btn-dark">Onayla</button></form>
+                                        {% elif article.bildirim_durum == 'onaylandi' %}
+
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+            </div></div>
+    </body>
+</html>
