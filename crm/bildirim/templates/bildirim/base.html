@@ -17,41 +17,7 @@
                  <div class="kullaniciisim">Hoşgeldin {{request.user.get_username}}</div>
             </header>
             <div class="bildirim">
-                <div class="title1">
-                    <h1>Bildirim Yönetimi</h1>
-                    <hr>
-                </div>
-            <div class="bildirimtable">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Bildirim ID</th>
-                                <th scope="col">Bildirim Metni</th>
-                                <th scope="col">Bildirim Durum</th>
-                                <th scope="col"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for article in form %}
-                                <tr>
-                                    <th scope="row">{{article.bildirim_id}}</th>
-                                    <td>{{article.bildirim_icerik}}</td>
-                                    <td>
-                                        {% if article.bildirim_durum == 'onay_bekliyor' %}
-                                            Onay Bekliyor
-                                        {% elif article.bildirim_durum == 'onaylandi' %}
-                                            Onaylandı
-                                        {% endif %}</td>
-                                    <td>{% if article.bildirim_durum == 'onay_bekliyor' %}
-                                            <form action="{% url 'index' %}" method="POST">{% csrf_token %}<button onclick="location.href='{% url 'index' %}'" name="bildirimonayla" type="submit" value="{{article.bildirim_id}}" class="stocksearchbutton btn btn-dark">Onayla</button></form>
-                                        {% elif article.bildirim_durum == 'onaylandi' %}
 
-                                        {% endif %}
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-            </div></div>
+            <div class="yapimasamasi">Bildirim Yönetimi Yapım Aşamasında</div></div>
     </body>
 </html>

@@ -120,10 +120,10 @@
                                 <tr>
                                     <th scope="row">{{article.device_id}}</th>
                                     <td>{{article.device_type}}</td>
-                                    <td>{{article.gsm_brand}}</td>
-                                    <td>{{article.status}}</td>
-                                    <td>{{article.subscriber_id}}</td>
-                                    <td>{{article.seller_id}}</td>
+                                    <td>{% if article.gsm_brand == None %}Yok{% else %}{{article.gsm_brand}}{% endif%}</td>
+                                    <td>{% if article.status == None %}Yok{% else %}{{article.status}}{% endif%}</td>
+                                    <td>{% if article.subscriber_id == None %}Yok{% else %}{{article.subscriber_id}}{% endif%} </td>
+                                    <td>{% if article.seller_id == None %}Yok{% else %}{{article.seller_id}}{% endif%} </td>
                                     <td><form action="{% url 'stokdetay' %}" method="POST">{% csrf_token %}<button onclick="location.href='{% url 'stokdetay' %}'" name="stockid" type="submit" value="{{article.device_id}}" class="stocksearchbutton btn btn-dark">Detay</button></form></td>
                                 </tr>
                             {% endfor %}

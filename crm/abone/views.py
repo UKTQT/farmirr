@@ -113,8 +113,9 @@ def aboneEkle(request):
             kullanicibilgi.user = request.user
             kullanicibilgi.save()
             deneme = str(request.user.seller_id)+" kullanıcısı,"+str(kullanicibilgi.subscriber_id)+" abonesini sisteme ekledi"
-            bildirimkaydet = bildirim(bildirim_icerik=deneme, bildirim_durum='onay_bekliyor')
+            bildirimkaydet = bildirim(bildirim_icerik=deneme, bildirim_subs_id=kullanicibilgi.subscriber_id,bildirim_durum='onay_bekliyor')
             bildirimkaydet.save()
+
         if form2.is_valid():
             kullaniciadres = form2.save(commit=False)
             kullaniciadres.address_owner_id = kullanicibilgi.subscriber_id
